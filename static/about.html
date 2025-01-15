@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Empower Women's Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #555;
+            padding-top: 80px;
+            transition: background-color 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            background-color: #007c7b;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 30px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 10px;
+        }
+
+        nav ul li {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 12px 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background-color: #004c49;
+            transform: scale(1.05);
+        }
+
+        .about {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #007c7b, #004c49);
+            color: white;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background: linear-gradient(135deg, #004c49, #007c7b);
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 200px;
+        }
+
+        footer .footer-content p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            margin: 0 12px;
+        }
+
+        footer .social-icons img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        p {
+    font-size: 18px; /* Slightly larger for readability */
+    line-height: 1.8; /* Comfortable spacing between lines */
+    color: #3f3f3f; /* Darker shade for better contrast */
+    margin-bottom: .9em; /* Adds space below paragraphs */
+    text-align: justify; /* Makes the text visually uniform */
+    word-spacing: 0.05em; /* Slightly increase word spacing for clarity */
+    text-align: center;
+}
+
+.red{
+    color:#ffffff;
+    text-align: center;
+}
+
+
+        @media (max-width: 768px) {
+            .about h2 {
+                font-size: 28px;
+            }
+
+            .about p {
+                font-size: 16px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 10px;
+            }
+
+            nav ul li {
+                font-size: 14px;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Empowering Your Health</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="weight.html">Weight/Hormones</a></li>
+                <li><a href="hearing.html">Hearing</a></li>
+                <li><a href="memory.html">Memory</a></li>
+                <li><a href="sight.html">Sight</a></li>
+                <li><a href="tips.html">Tips & Resources</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about">
+        <h2>About Us</h2>
+        <p>At Empower Health, we are dedicated to helping people of older age understand and manage their health as they age, focusing on hearing, memory, sight, dieting, and hormones. We provide expert advice, resources, and support to ensure you thrive in your later years. Our goal is to offer informative content that empowers you to live your healthiest and most fulfilling life.</p>
+        <a href="{{ url_for('tips') }}" class="cta-button">See What You Can Do</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="red">&copy; 2025 Red Rat Health</p>
+
+        </div>
+    </footer>
+</body>
+</html>

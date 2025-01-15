@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sight Health - Empower Women's Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #555;
+            padding-top: 80px;
+            transition: background-color 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            background-color: #007c7b;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 30px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 10px;
+        }
+
+        nav ul li {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 12px 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background-color: #004c49;
+            transform: scale(1.05);
+        }
+
+        .content {
+            padding: 80px 20px;
+            margin-right: 270px !important; /* Add space to the left for sidebar */
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            padding-bottom: 40px;
+        }
+
+        .sidebar {
+    position: fixed;
+    top: 58%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 250px;
+    background-color: #7c005196;
+    color: white;
+    padding: 10px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar header */
+.sidebar-header {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Merriweather', serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Sidebar links */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a:focus {
+    background-color: #4c0048;
+    transform: scale(1.05);
+}
+
+        .content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            width: 100%;
+        }
+
+        .section-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            margin-bottom: 30px;
+        }
+
+        .section-card h3 {
+            font-size: 26px;
+            color: #007c7b;
+            margin-bottom: 15px;
+        }
+
+        .section-card p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .section-card ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .section-card ul li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        footer .footer-content p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            margin: 0 12px;
+        }
+
+        footer .social-icons img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        h4{
+            font-size: 1.3em;
+            color: #375b7c;
+        }
+
+        p {
+    line-height: 1.8; /* Comfortable spacing between lines */
+    color: #333; /* Darker shade for better contrast */
+    margin-bottom: .9em; /* Adds space below paragraphs */
+    text-align: justify; /* Makes the text visually uniform */
+    }
+
+
+    .eye-chart {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        font-size: 50px;
+        letter-spacing: 5px;
+        word-wrap: break-word; /* Ensures content fits within boundaries */
+        width: 100%; /* Ensures it adjusts with screen size */
+        max-width: 100%; /* Prevents chart from overflowing */
+        overflow: hidden; /* Prevents breaking out of container */
+        text-align: center !important;
+    }
+
+    .chart-line {
+        margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 200px;
+        }
+
+        .sidebar-header {
+            font-size: 20px;
+        }
+
+        .sidebar-nav ul li a {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .content h2 {
+            font-size: 28px;
+        }
+
+        .section-card {
+            width: 100%;
+        }
+
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        nav ul li {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .eye-chart {
+            font-size: 30px; /* Smaller font size for mobile */
+        }
+    }
+
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .size-button {
+        background-color: #007c7b;
+        color: white;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        margin: 0 10px;
+    }
+
+    .size-button:hover,
+    .size-button:focus {
+        background-color: #004c49;
+        transform: scale(1.05);
+    }
+
+    .size-button:active {
+        background-color: #003e3b;
+    }
+
+    .red{
+    color:#ffffff;
+    text-align: center;
+}
+
+
+
+    @media (max-width: 768px) {
+        .content h2 {
+            font-size: 28px;
+        }
+
+        .section-card {
+            width: 100%;
+        }
+
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        nav ul li {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .eye-chart {
+            font-size: 30px;
+        }
+
+        .size-button {
+            font-size: 16px;
+            padding: 8px 16px;
+        }
+    }
+    </style>
+ <script>
+    function adjustTextSize(action) {
+        const chart = document.getElementById('eye-chart');
+        let currentSize = parseInt(window.getComputedStyle(chart).fontSize);
+
+        if (action === 'smaller') {
+            currentSize = currentSize - 5;
+        } else if (action === 'larger') {
+            currentSize = currentSize + 5;
+        }
+
+        chart.style.fontSize = currentSize + 'px';
+    }
+</script>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Empowering Your Health</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="weight.html">Weight/Hormones</a></li>
+                <li><a href="hearing.html">Hearing</a></li>
+                <li><a href="memory.html">Memory</a></li>
+                <li><a href="sight.html">Sight</a></li>
+                <li><a href="tips.html">Tips & Resources</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Empower Health
+        </div>
+        <div class="sidebar-nav">
+            <ul>
+                <li><a href="#vision">Assess Your Vision</a></li>
+                <li><a href="#food">How Vision Changes & Foods To Maintain It</a></li>
+                <li><a href="#exercise">Excercises & Resources To Fix Your Vision</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="vision" class="content">
+        <h2>Protect Your Vision as You Age</h2>
+
+        <p>As you age, it's important to monitor your vision regularly. Here's a simple eye chart you can use to test your vision:</p>
+
+        <div id="eye-chart" class="eye-chart">
+            <p class="chart-line">E</p>
+            <p class="chart-line">F P T O Z</p>
+            <p class="chart-line">L P E D F C Z</p>
+            <p class="chart-line">P E C F D</p>
+            <p class="chart-line">E D F C Z P</p>
+        </div>
+    
+        <div id="food" class="button-container">
+            <button class="size-button" onclick="adjustTextSize('smaller')">Make Text Smaller</button>
+            <button class="size-button" onclick="adjustTextSize('larger')">Make Text Larger</button>
+        </div>
+    
+        <p>To use the chart, stand about 10 feet away from the screen. If you can't read the letters, try adjusting the size.</p>
+        <!-- Section: How Vision Changes -->
+        <div class="section-card">
+            <h3>Vision & How Age Effects It</h3>
+            <h4>How Vision Works</h4>
+            <p>Light passes through the cornea, which is the transparent outer layer of the eye. The cornea helps focus the light. After the cornea, light travels through the pupil (the black circle in the center of the eye), which controls how much light enters. The amount of light entering the pupil is adjusted by the iris (the colored part of the eye). The lens focuses the light onto the retina, located at the back of the eye. The retina contains light-sensitive cells (rods and cones) that detect light and sends electrical signals through the optic nerve to the brain. The brain then interprets these signals as images. The brain processes the information from both eyes to create a single image and helps us understand depth and movement.</p>
+            <h4><br> How Vision Changes With Age</h4>
+            <p>Presbyopia (aging of the lens): Around the age of 40, the lens in the eye starts losing its flexibility. This condition is called presbyopia, and it makes it harder for the eye to focus on close objects. People with presbyopia find it difficult to read small print or see objects up close, which is why many people start needing reading glasses around this age.</p>
+            <p><br> Cataracts: A cataract is a clouding of the lens in the eye. As people age, the proteins in the lens break down, and the lens becomes less clear. Cataracts can cause blurry vision, glare, and difficulty seeing in low light. It often feels like looking through a foggy window.</p>
+            <p><br> Age-Related Macular Degeneration (AMD): AMD is a condition that affects the macula, the part of the retina responsible for central vision. It typically affects people over the age of 50. AMD causes central vision loss, making it difficult to see faces, read, or drive. The peripheral vision usually remains intact, so some people might not notice the changes at first.</p>
+            <p><br> Glucoma: Glaucoma is often caused by high pressure inside the eye, which can damage the optic nerve over time. This damage typically happens slowly and might not cause immediate symptoms. Glaucoma causes a gradual loss of peripheral vision (side vision). If untreated, it can lead to total blindness.</p>
+            <p><br> Reduced Contrast Sensitivity: As we age, the pupil size decreases, and the lens becomes less clear. This makes it harder to distinguish objects from their background, especially in low light. Older individuals might find it difficult to see in dim lighting, or they may have trouble distinguishing objects that have similar colors or tones.</p>
+            <p><br> Dry Eyes: The tear production system slows down with age, leading to a decrease in the moisture level in the eyes. Dry eyes can cause irritation, a feeling of grittiness, or blurred vision. It is common in older adults, especially women, and can be worsened by medications or environmental factors.</p>
+        </div>
+
+        <!-- Section: What You Can Do -->
+        <div class="section-card">
+            <h3> Foods For Better Sight</h3>
+            <h4>Carrots (Vitamin A)</h4>
+            <p>Carrots are rich in beta-carotene, which the body converts into vitamin A. Vitamin A is essential for maintaining healthy vision, particularly in low-light conditions. It also supports the retina, which is vital for clear vision.</p>
+            <li><strong>Other sources: Sweet potatoes, pumpkins, and dark leafy greens like spinach.</strong></li>
+            <h4><br> Leafy Greens (Lutein and Zeaxanthin)</h4>
+            <p>Dark leafy greens, such as spinach, kale, and collard greens, are packed with lutein and zeaxanthin, two antioxidants that are concentrated in the retina. These nutrients help protect the eyes from harmful light and reduce the risk of age-related macular degeneration (AMD) and cataracts.</p>
+            <li><strong>Other sources: Broccoli, corn, and peas.</strong></li>
+            <h4><br> Fish (Omega-3 Fatty Acids)</h4>
+            <p>Fatty fish like salmon, tuna, and sardines are rich in omega-3 fatty acids, which are important for maintaining the health of the retina. Omega-3s also help reduce the risk of dry eyes, a common problem as we age.</p>
+            <li><strong>Other sources: Flaxseeds, chia seeds, and walnuts (for plant-based omega-3s).</strong></li>
+            <h4><br> Eggs (Lutein, Zinc, Vitamin A)</h4>
+            <p>Eggs are a great source of lutein, zeaxanthin, and zinc, all of which help protect the retina and support overall eye health. Zinc also helps the body absorb vitamin A, which is crucial for good vision.</p>
+            <li><strong>Other sources: Oysters, beef, and beans (for zinc).</strong></li>
+            <h4><br> Other sources: Oysters, beef, and beans (for zinc).</h4>
+            <p>Bell peppers, especially red and orange ones, are high in vitamin C, an antioxidant that helps reduce the risk of cataracts and age-related macular degeneration (AMD). Vitamin C also helps maintain the health of the blood vessels in the eyes.</p>
+            <li><strong>Other sources: Citrus fruits (oranges, grapefruits), strawberries, kiwi, and broccoli.</strong></li>
+            <h4><br> Nuts and Seeds (Vitamin E, Omega-3 Fatty Acids)</h4>
+            <p>Nuts and seeds, like almonds, sunflower seeds, and walnuts, are high in vitamin E, which protects the eyes from oxidative stress and may reduce the risk of cataracts. Walnuts also provide omega-3 fatty acids, further supporting eye health.</p>
+            <li><strong>Other sources: Avocados, hazelnuts, and peanuts.</strong></li>
+            <h4><br> Like carrots, sweet potatoes are rich in beta-carotene, which the body converts into vitamin A. This helps maintain healthy vision and supports the function of the retina.</h4>
+            <li><strong>Other sources: Butternut squash and pumpkin.</strong></li>
+            <h4><br> Blueberries (Antioxidants)</h4>
+            <p>Blueberries contain powerful antioxidants, including anthocyanins, which can help protect the eyes from oxidative stress and inflammation. These antioxidants help improve circulation to the eyes and may reduce the risk of cataracts and AMD.</p>
+            <li><strong>Other sources: Blackberries, cherries, and grapes.</strong></li>
+            <h4><br> Tomatoes (Lycopene)</h4>
+            <p>Tomatoes are rich in lycopene, a powerful antioxidant that helps reduce the risk of cataracts and AMD. Lycopene also helps protect the eyes from harmful light and oxidative damage.</p>
+            <li><strong>Other sources: Watermelon, pink grapefruit, and red peppers.</strong></li>
+            <h4><br> Avocados (Lutein, Vitamin E)</h4>
+            <p>Avocados contain lutein, which helps protect the eyes from harmful light, and vitamin E, which works as an antioxidant to protect eye cells from damage. The healthy fats in avocados also support the absorption of fat-soluble vitamins like lutein.</p>
+            <li><strong>Other sources: Olive oil and fatty fish.</strong></li>
+            <h4><br>Whole Grains (Zinc, Vitamin E)</h4>
+            <p>Whole grains like oats, quinoa, and brown rice are good sources of vitamin E and zinc, both of which contribute to healthy vision by protecting the eyes from oxidative damage.</p>
+            <li><strong>Other sources: Fortified cereals and bread.</strong></li>
+            <h4><br> Broccoli (Vitamin C, Lutein, Zeaxanthin)</h4>
+            <p>Broccoli is another excellent source of vitamin C and contains lutein and zeaxanthin, which protect the eyes from damage caused by harmful light and reduce the risk of cataracts and AMD.</p>
+            <li><strong>Other sources: Brussels sprouts, cabbage, and cauliflower.</strong></li>
+            <h4><br> Dark Chocolate (Flavonoids)</h4>
+            <p>Dark chocolate contains flavonoids, which improve blood flow to the eyes and protect the retina. It also has antioxidants that can help reduce inflammation and improve visual performance.</p>
+            <li><strong>Other sources: Berries, tea, and apples.</strong></li>
+            <h4><br> Hydration (Water)</h4>
+            <p id="exercise">Staying hydrated is essential for overall eye health. Dehydration can contribute to dry eyes and other vision issues, so drinking plenty of water is crucial to maintaining moisture in the eyes.</p>
+        </div>
+
+        <div class="section-card">
+            <h3>Excercises For Your Vision</h3>
+            <h4>Cardiovascular Excercises </h4>
+            <p>Why it’s good: Cardiovascular exercise, such as walking, running, cycling, and swimming, improves blood circulation throughout the body, including to the eyes. This increased circulation helps deliver oxygen and nutrients to the eye, which supports its function and overall health. Cardiovascular exercise helps reduce the risk of eye diseases such as glaucoma and age-related macular degeneration (AMD), which are linked to poor circulation and oxidative stress.</p>
+            <h4><br> Eye Exercises</h4>
+            <p>While there are no exercises that can change the structure of the eye itself, eye exercises can reduce eye strain and improve focus. These exercises are particularly helpful for people who spend long hours in front of screens or have eye strain due to age-related changes like presbyopia.</p>
+            <li><strong>The 20-20-20 Rule: </strong> 20 minutes, look at something 20 feet away for at least 20 seconds. This helps relax the eye muscles and reduces digital eye strain caused by prolonged screen time.</li>
+            <li><strong>Eye Rolling: </strong> your eyes in a circular motion in both directions. This can help strengthen the eye muscles and improve focus.</li>
+            <li><strong>Focus Shifting: </strong> a pen or object in front of you and focus on it. Slowly move it towards your nose, keeping your eyes on it, and then move it back. This exercise strengthens the eye muscles that help with near and far focusing.</li>
+            <li><strong>Palming: </strong> your hands together to generate warmth, then gently place your palms over your closed eyes. Relax and breathe deeply. This exercise can relieve eye strain and promote relaxation of the eye muscles</li>
+            <h4><br> Strength Training</h4>
+            <p>Strength training, especially exercises that involve lifting weights, helps improve blood flow and nutrient delivery throughout the body, including to the eyes. It also helps maintain healthy blood pressure, which can reduce the risk of eye problems like diabetic retinopathy and glaucoma. Strength training promotes better circulation, supports healthy blood pressure, and improves overall body health, which in turn helps prevent eye-related conditions associated with aging and chronic illness.</p>
+            <h4><br> Yoga</h4>
+            <p>Yoga is particularly beneficial for eye health due to its combination of gentle physical movement, controlled breathing, and relaxation techniques. It helps improve blood circulation, reduce stress, and relieve tension that can cause or exacerbate eye strain.</p>
+            <li><strong>Trataka (concentration): </strong>In this practice, you focus on a single point or object (such as a candle flame) for several minutes. It helps improve focus and concentration and strengthens the eye muscles.</li>
+            <li><strong>Surya Namaskar (Sun Salutation): </strong>This sequence of yoga poses enhances overall circulation, including to the eyes, and helps relieve stress, which can have positive effects on eye health.</li>
+            <h4><br> Pilates</h4>
+            <p> Pilates focuses on strengthening the core and improving posture, which can help relieve strain on the eyes. Good posture is essential for proper alignment and visual comfort, especially for people who spend long periods working on computers or doing detailed tasks. Pilates helps reduce the stress and tension that can lead to eye strain, and it can also improve breathing, which supports overall circulation, including to the eyes.</p>
+            <h4><br> Stretching and Relaxation</h4>
+            <p>Stretching exercises and relaxation techniques help reduce tension in the head, neck, and shoulders, which can, in turn, reduce the risk of eye strain and headaches. When the body is relaxed and tension-free, the eyes are less likely to feel strained or fatigued. Stretching promotes flexibility and relaxation, improving circulation and helping reduce tension in the muscles around the eyes, which can help alleviate eye strain.</p>
+            <h4><br> Outdoor Activities</h4>
+            <p>Spending time outdoors and exposing your eyes to natural light can be beneficial, particularly for children and teenagers who spend a lot of time indoors. Research shows that outdoor activities like walking, hiking, or playing sports may help prevent the development of nearsightedness (myopia) in children and slow its progression.  Outdoor light exposure is thought to help regulate eye growth and may reduce the risk of developing nearsightedness. It also gives your eyes a break from close-up activities, like reading or screen time, which can reduce eye strain.</p>
+            <h4><br> Tai Chi</h4>
+            <p>Tai Chi, a gentle form of martial arts, promotes balance, relaxation, and mental focus. The slow, deliberate movements encourage relaxation and improve circulation, which benefits the eyes by reducing stress and improving blood flow. Tai Chi helps reduce stress and increase overall health, which can have a positive effect on the eyes, especially by reducing the risk of conditions like glaucoma or dry eyes.</p>
+            <h4><br> Swimming</h4>
+            <p>Swimming provides a full-body workout that enhances cardiovascular health and improves blood circulation, including to the eyes. The gentle movement can also help relieve stress, which may contribute to eye strain. Swimming improves overall health and circulation, supporting eye health. It also helps strengthen the muscles involved in eye movement, which may benefit overall eye function.</p>
+        </div>
+        <div class="section-card">
+            <h3>Fix Your Vision</h3>
+            <ul>
+                <li>
+                    <a href="https://www.ray-ban.com/usa?cid=PM-SGA_300419-1.US-RayBan-EN-B-NA-Core-Exact-Prs-Desktop-Ecom-NA_TM-All_ray+ban&s_kwcid=AL!16196!3!659471931517!e!!g!!ray%20ban!18875283262!142915168706&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUJSeU2WrdKyZ2kQEvACosIPxmEJ8iSYHjEhx5MS1ZtIM6lPfHYmQIRoCaSoQAvD_BwE&gclsrc=aw.ds" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       Eyeglasses: Prescription glasses are one of the most common solutions for vision issues like nearsightedness (myopia), farsightedness (hyperopia), and astigmatism. They can help improve clarity and reduce eye strain.
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.1800contacts.com/?ac=PS.Google.Non-Brand.e.c.Google_Search_NB_BroadMatch_AllDevice_Geo_Tier-1-Desktop-Tablet.contact%20lenses&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUC7EIW5YR4GRmVqBqF3EaGMblddLu6nkXiFZ4X-WN_NJaDu-YaUDDRoCQ60QAvD_BwE" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       Contact Lenses: These are worn directly on the eye to correct vision. They can offer a more natural field of vision compared to eyeglasses and are available in various types:
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.justblink.com/products/blink-contacts-lubricating-eye-drops?&utm_source=google&utm_medium=cpc&utm_campaign=Blink+-+UB+-+Contact+Lens+Drops+-+Exact&utm_content=General&utm_term=best+eye+drops&gclsrc=aw.ds&&mkwid=s-dc_pcrid_480125549468_pkw_best%20eye%20drops_pmt_e_slid__product__pgrid_51646613253_ptaid_kwd-297123769624_cpgnid_1057667199&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUNc_aX_EcfiMuQF4XyxT4fw3ew8RIU7gtNjCTYHq8X_TnWfERiNp0BoChw4QAvD_BwE" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       The Best In Eye Drops
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.manhattanlasikcenter.com/?gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUGULv1KlUFj-Y9K498WSvgDXXxL9O6H_DjakbzbrFq68kEJD1JqyxxoCxg8QAvD_BwE" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       Laser Eye Surgery (LASIK): LASIK (Laser-Assisted in Situ Keratomileusis) is a popular procedure to correct refractive vision problems like nearsightedness, farsightedness, and astigmatism. It reshapes the cornea to allow light to focus properly on the retina, reducing or eliminating the need for glasses or contact lenses.
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.ncbi.nlm.nih.gov/books/NBK549887/#:~:text=Photorefractive%20keratectomy%20(PRK)%20is%20a,may%20be%20the%20preferred%20option." target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       PRK (Photorefractive Keratectomy): This is a similar procedure to LASIK, but instead of creating a flap in the cornea, the top layer of the cornea is removed to reshape it. PRK may be recommended for people with thin corneas or certain corneal conditions.
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.zeiss.com/meditec/en/products/phaco-vitrectomy-lensfragmentation/zeiss-quatera-700.html?utm_source=google-ads&utm_medium=text-ad&utm_campaign=c-00014471-USA-Always-on&utm_term=search-network&utm_content=rta&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUM7zSLVK10ekWtyvj4EwgRdAn4lEJcFN3GPkeX0AocXTf-BMwra8xhoCiO4QAvD_BwE" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       Cataract Surgery: For people with cataracts, surgery can remove the clouded lens and replace it with an artificial intraocular lens (IOL) to restore clear vision.
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://ilovelasik.com/evo-icl?gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUIvuVnXC6k7xx1BFWkIOFhhpxi5ikJGaUXeKKT4N7Uik2J9ezoq6xBoCUiAQAvD_BwE" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       Implantable Lenses (ICLs): For people who are not candidates for LASIK, implantable contact lenses can be surgically placed inside the eye to correct refractive vision problems.                        </a>
+                  </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="red">&copy; 2025 Red Rat Health</p>
+
+        </div>
+    </footer>
+</body>
+</html>
