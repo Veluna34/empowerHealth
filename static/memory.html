@@ -308,6 +308,10 @@
         padding: 15px;
     }
 
+    .sidebar {
+            display: none;
+        }
+
     #memory-test button {
         padding: 10px 15px;
         font-size: 14px;
@@ -321,6 +325,20 @@
         @media (max-width: 768px) {
             .content h2 {
                 font-size: 28px;
+            }
+
+            .content{
+                margin-left: 0px;
+                width: 100%;
+            }
+
+            header{
+                position: static;
+                margin-top: -100px;
+            }
+
+            header .logo h1{
+                display: none;
             }
 
             .section-card {

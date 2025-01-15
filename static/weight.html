@@ -327,15 +327,7 @@ form {
     /* Make the sidebar responsive */
     @media (max-width: 768px) {
         .sidebar {
-            width: 200px;
-        }
-
-        .sidebar-header {
-            font-size: 20px;
-        }
-
-        .sidebar-nav ul li a {
-            font-size: 16px;
+            display: none;
         }
     }
 
@@ -347,6 +339,15 @@ form {
             form input {
                 font-size: 14px;
                 padding: 8px;
+            }
+
+            header .logo h1{
+                display: none;
+            }
+
+            .content{
+                margin-left: 0px;
+                width: 100%;
             }
 
             form button {
@@ -362,6 +363,11 @@ form {
 
             .section-card {
                 width: 100%;
+            }
+
+            header{
+                position: static;
+                margin-top: -100px;
             }
 
             nav ul {

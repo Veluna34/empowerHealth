@@ -310,13 +310,30 @@
 
 
     @media (max-width: 768px) {
+        .sidebar {
+            display: none;
+        }
         .content h2 {
             font-size: 28px;
         }
 
+        .content{
+                margin-left: 0px;
+                width: 100%;
+            }
+
+            header{
+                position: static;
+                margin-top: -100px;
+            }
+
         .section-card {
             width: 100%;
         }
+
+        header .logo h1{
+                display: none;
+            }
 
         nav ul {
             flex-direction: column;
