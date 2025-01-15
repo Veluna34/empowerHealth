@@ -1,0 +1,167 @@
+<div class="section-card">
+    <div class="long-term-memory-game">
+        <h3>Memory Vault</h3>
+        <p>Store and recall information to strengthen your long-term memory!</p>
+    
+        <button id="onestartGame">Start Memory Vault</button>
+    
+        <div id="onegameArea" style="display: none;">
+            <h4 id="instruction">Store and remember the following:</h4>
+            <div id="contentDisplay"></div>
+            <input type="text" id="userInput" placeholder="Enter what you remember" />
+            <button id="submitAnswer">Submit</button>
+    
+            <div id="levelDisplay"></div>
+            <div id="timerDisplay"></div>
+        </div>
+    
+        <div id="newgameResults" style="display: none;">
+            <h4>Your Results:</h4>
+            <p id="totalScore"></p>
+        </div>
+    </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // New element references based on the updated IDs
+        let newstartButton = document.getElementById('onestartGame');
+        let newgameArea = document.getElementById('onegameArea');
+        let contentDisplay = document.getElementById('contentDisplay');
+        let newuserInput = document.getElementById('userInput');
+        let submitButton = document.getElementById('submitAnswer');
+        let newgameResults = document.getElementById('newgameResults');
+        let totalScoreDisplay = document.getElementById('totalScore');
+        let instructionDisplay = document.getElementById('instruction');
+        let newlevelDisplay = document.getElementById('levelDisplay');
+        let timerDisplay = document.getElementById('timerDisplay');
+        
+        let score = 0;
+        let enteredStrings = [];
+        let reviewTime = null; // We'll calculate this after the first string-entry phase
+        let stringEntryTimeLimit = 30; // Time limit for string entry phase in seconds
+        let levelTimer = null;
+        let timeLeft = stringEntryTimeLimit;
+        let reviewCountdownTimer = null; // Timer for the 3-day countdown
+        let reviewTimeLeft = 3 * 24 * 60 * 60; // 3 days in seconds
+        
+        // Start game
+        newstartButton.addEventListener('click', startGame);
+        submitButton.addEventListener('click', submitString);
+        
+        // Start a new game
+        function startGame() {
+            newgameArea.style.display = 'block';
+            newgameResults.style.display = 'none';
+            score = 0;
+            enteredStrings = [];
+            timeLeft = stringEntryTimeLimit;
+            levelTimer = setInterval(updateTimer, 1000); // Start countdown timer
+            newlevelDisplay.textContent = `Time Limit: ${timeLeft}s to enter strings`;
+            nextStringPrompt();
+        }
+        
+        // Update the string entry timer and check if time is up for string entry
+        function updateTimer() {
+            timeLeft--;
+            timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+        
+            if (timeLeft <= 0) {
+                clearInterval(levelTimer); // Stop the timer
+                startRecallPhase(); // Begin the recall phase after time runs out
+            }
+        }
+        
+        // Prompt the user to enter a string for the current phase
+        function nextStringPrompt() {
+            newuserInput.value = ''; // Clear previous input
+            instructionDisplay.textContent = 'Enter as many strings as you can in the time limit!';
+        
+            newuserInput.disabled = false;
+            submitButton.style.display = 'inline';
+        }
+        
+        // Submit the entered string
+        function submitString() {
+            let playerString = newuserInput.value.trim();
+            if (playerString) {
+                enteredStrings.push(playerString); // Add the entered string to the list
+                score++; // Increase the score
+                newuserInput.value = ''; // Clear the input field
+            }
+        }
+        
+        // Start the recall phase after reviewTime
+        function startRecallPhase() {
+            reviewTime = Date.now() + (3 * 24 * 60 * 60 * 1000); // Set review time to 3 days after string entry
+            instructionDisplay.textContent = 'The recall phase will begin after 3 days.';
+            
+            // Start countdown timer for the 3 days until recall phase
+            reviewCountdownTimer = setInterval(updateReviewCountdown, 1000);
+        }
+        
+        // Update the 3-day countdown timer
+        function updateReviewCountdown() {
+            if (reviewTimeLeft <= 0) {
+                clearInterval(reviewCountdownTimer); // Stop the countdown
+                recallEnteredStrings(); // Start the recall phase
+            } else {
+                let days = Math.floor(reviewTimeLeft / (24 * 60 * 60));
+                let hours = Math.floor((reviewTimeLeft % (24 * 60 * 60)) / (60 * 60));
+                let minutes = Math.floor((reviewTimeLeft % (60 * 60)) / 60);
+                let seconds = reviewTimeLeft % 60;
+                
+                timerDisplay.textContent = `Time Left to Recall: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                
+                reviewTimeLeft--;
+            }
+        }
+        
+        // Prompt the player to recall all entered strings in the correct order
+        function recallEnteredStrings() {
+            instructionDisplay.textContent = 'Enter the strings you remember in the correct order:';
+            newuserInput.disabled = false;
+            submitButton.style.display = 'inline';
+            
+            // Reset timer for recall phase
+            timeLeft = stringEntryTimeLimit; 
+            levelTimer = setInterval(updateRecallTimer, 1000); // Start countdown for recall phase
+        }
+        
+        // Update the recall phase timer
+        function updateRecallTimer() {
+            timeLeft--;
+            timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+        
+            if (timeLeft <= 0) {
+                clearInterval(levelTimer); // Stop the timer
+                checkRecall(); // Automatically check recall if time runs out
+            }
+        }
+        
+        // Check if the player recalled all strings correctly
+        function checkRecall() {
+            let playerAnswer = newuserInput.value.trim().split(',');
+            
+            if (JSON.stringify(playerAnswer) === JSON.stringify(enteredStrings)) {
+                score += 10; // Reward bonus points for correct recall
+                totalScoreDisplay.textContent = `Congratulations! You recalled the strings correctly. Your score is ${score}.`;
+                setTimeout(() => {
+                    gameOver("Victory!"); // End game with a victory message
+                }, 1000);
+            } else {
+                totalScoreDisplay.textContent = `Incorrect recall! Your recall did not match the entered strings. Final score: ${score}`;
+                setTimeout(() => {
+                    gameOver("Game Over!"); // End game with failure message
+                }, 1000);
+            }
+        }
+        
+        // End the game and display results
+        function gameOver(message) {
+            newgameArea.style.display = 'none';
+            newgameResults.style.display = 'block';
+            totalScoreDisplay.textContent = `${message} Your final score is ${score}.`;
+        }
+    });
+</script>

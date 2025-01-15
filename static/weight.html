@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight & Hormone Health - Empower Women's Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #555;
+            padding-top: 80px;
+            transition: background-color 0.3s ease;
+        }
+
+        p {
+    font-size: 18px; /* Slightly larger for readability */
+    line-height: 1.8; /* Comfortable spacing between lines */
+    color: #333; /* Darker shade for better contrast */
+    margin-bottom: .9em; /* Adds space below paragraphs */
+    text-align: justify; /* Makes the text visually uniform */
+    word-spacing: 0.05em; /* Slightly increase word spacing for clarity */
+}
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            background-color: #007c7b;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 30px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 10px;
+        }
+
+        nav ul li {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 12px 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background-color: #004c49;
+            transform: scale(1.05);
+        }
+
+        .content {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            padding-bottom: 40px;
+        }
+
+        .content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            width: 100%;
+        }
+
+        .section-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            margin-bottom: 30px;
+        }
+
+        .section-card h3 {
+            font-size: 26px;
+            color: #007c7b;
+            margin-bottom: 15px;
+        }
+
+        .section-card p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .section-card ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .section-card ul li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        footer .footer-content p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            margin: 0 12px;
+        }
+
+        footer .social-icons img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        h4{
+            font-size: 1.3em;
+            color: #375b7c;
+        }
+
+        .health{
+            height: 70vh;
+        }
+
+        .with-bullets {
+    list-style: disc; /* Adds bullet points */
+    padding-left: 20px; /* Ensures bullets are indented */
+}
+
+.with-bullets li {
+    display: list-item; /* Ensures correct list behavior */
+}
+
+form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        form .form-group {
+            margin-bottom: 15px;
+        }
+
+        form label {
+            font-size: 16px;
+            color: #555;
+        }
+
+        form input {
+            width: calc(100% - 16px);
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        form input:focus {
+            border-color: #007c7b;
+            box-shadow: 0 0 5px rgba(0, 124, 123, 0.3);
+            outline: none;
+        }
+
+        form button {
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #007c7b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        form button:hover {
+            background-color: #005f5e;
+            transform: scale(1.02);
+        }
+
+        form button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 124, 123, 0.5);
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+        }
+
+        .red{
+    color:#ffffff;
+    text-align: center;
+}
+
+/* Sidebar container */
+.sidebar {
+    position: fixed;
+    top: 58%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 250px;
+    background-color: #7c005196;
+    color: white;
+    padding: 10px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar header */
+.sidebar-header {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Merriweather', serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Sidebar links */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a:focus {
+    background-color: #4c0048;
+    transform: scale(1.05);
+}
+/* Content section styling */
+.content {
+    margin-right: 270px; /* Add space to the left for sidebar */
+    padding: 40px;
+    margin-bottom: 50px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Cards Styling */
+.section-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.section-card h3 {
+    font-size: 26px;
+    color: #007c7b;
+}
+
+    /* Make the sidebar responsive */
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 200px;
+        }
+
+        .sidebar-header {
+            font-size: 20px;
+        }
+
+        .sidebar-nav ul li a {
+            font-size: 16px;
+        }
+    }
+
+        @media (max-width: 768px) {
+            form {
+                padding: 15px;
+            }
+
+            form input {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            form button {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content h2 {
+                font-size: 28px;
+            }
+
+            .section-card {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 10px;
+            }
+
+            nav ul li {
+                font-size: 14px;
+                margin: 8px 0;
+            }
+        }
+    </style>
+
+<script>
+    // BMI Calculation Function
+    function calculateBMI() {
+        const weight = parseFloat(document.getElementById('weight').value);
+        const heightCm = parseFloat(document.getElementById('height').value);
+
+        if (!weight || !heightCm) {
+            document.getElementById('result').innerText = 'Please provide valid weight and height measurements.';
+            return;
+        }
+
+        const heightM = heightCm / 100;
+        const bmi = (weight / (heightM * heightM)).toFixed(2);
+
+        let feedback = '';
+        if (bmi < 18.5) {
+            feedback = 'You are underweight. Consider consulting a healthcare provider.';
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+            feedback = 'You are in a healthy range!';
+        } else if (bmi >= 25 && bmi <= 29.9) {
+            feedback = 'You are overweight. Consider lifestyle changes and consulting a professional.';
+        } else {
+            feedback = 'You are in the obese range. Please consult a healthcare provider.';
+        }
+
+        document.getElementById('result').innerText = `Your BMI is ${bmi}. ${feedback}`;
+    }
+
+    // Waist-to-Hip Ratio Calculation Function
+    function calculateWHR() {
+        const waist = parseFloat(document.getElementById('waist').value);
+        const hip = parseFloat(document.getElementById('hip').value);
+
+        if (!waist || !hip) {
+            document.getElementById('whrResult').innerText = 'Please provide valid waist and hip measurements.';
+            return;
+        }
+
+        const whr = (waist / hip).toFixed(2);
+
+        let risk = '';
+        if (whr < 0.85) {
+            risk = 'Low health risk.';
+        } else if (whr >= 0.85 && whr <= 0.95) {
+            risk = 'Moderate health risk.';
+        } else {
+            risk = 'High health risk. Consider consulting a healthcare provider.';
+        }
+
+        document.getElementById('whrResult').innerText = `Your Waist-to-Hip Ratio is ${whr}. ${risk}`;
+    }
+
+    // Body Fat Percentage Calculation Function
+    function calculateBodyFat() {
+    const neck = parseFloat(document.getElementById('neck').value);
+    const waist = parseFloat(document.getElementById('waistForBF').value);
+    const height = parseFloat(document.getElementById('heightForBF').value);
+    const gender = document.getElementById('gender').value;
+    const hip = parseFloat(document.getElementById('hip') ? document.getElementById('hip').value : 0); // If hip is not provided, use 0.
+
+    if (!neck || !waist || !height || (gender === 'female' && !hip)) {
+        document.getElementById('bodyFatResult').innerText = 'Please provide valid measurements for neck, waist, height, and hip (if female).';
+        return;
+    }
+
+    let bodyFatPercentage = 0;
+
+    if (gender === 'male') {
+        bodyFatPercentage = (86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(height) + 36.76).toFixed(2);
+    } else {
+        if (hip === 0) { // Check if hip is not provided for female and show an error or handle accordingly
+            document.getElementById('bodyFatResult').innerText = 'Please provide valid hip circumference for females.';
+            return;
+        }
+        bodyFatPercentage = (163.205 * Math.log10(waist + hip - neck) - 97.684 * Math.log10(height) - 78.387).toFixed(2);
+    }
+
+    document.getElementById('bodyFatResult').innerText = `Your estimated body fat percentage is ${bodyFatPercentage}%.`;
+}
+
+</script>
+
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Empowering Your Health</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="weight.html">Weight/Hormones</a></li>
+                <li><a href="hearing.html">Hearing</a></li>
+                <li><a href="memory.html">Memory</a></li>
+                <li><a href="sight.html">Sight</a></li>
+                <li><a href="tips.html">Tips & Resources</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Empower Health
+        </div>
+        <div class="sidebar-nav">
+            <ul>
+                <li><a href="#bmi">Asses Your Health</a></li>
+                <li><a href="#metabolism">Metabolism & Muscle</a></li>
+                <li><a href="#physique">Physique & Hormones</a></li>
+                <li><a href="#maintenence">Weight Maintenence</a></li>
+                <li><a href="#food">Foods For Your Health</a></li>
+                <li><a href="#workout">Workouts For Your Health</a></li>
+                <li><a href="#tips">Excercise Tips</a></li>
+                <li><a href="#fix">Fix Your Health</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="content">
+        <h2 id="bmi">Manage Weight & Hormone Health</h2>
+    
+        <form id="healthForm">
+            <p >Use the BMI calculator below to estimate whether your weight is in a healthy range (Not Acurate For People With Moderate-High Muscle Mass):</p>
+            <br>
+            <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" name="weight" placeholder="Enter your weight in kg" required>
+            </div>
+            <div class="form-group">
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" name="height" placeholder="Enter your height in cm" required>
+            </div>
+            <button type="button" onclick="calculateBMI()">Calculate</button>
+            <p id="result"></p>
+        </form>
+
+        <form id="whrForm">
+            <p>Use the Waist-to-Hip Ratio calculator below to assess if you have a healthy amount of visceral fat (visceral fat causes metabollic diseases like obesity and diabetes):</p>
+            <br>
+            <div class="form-group">
+                <label for="waist">Waist Circumference (cm):</label>
+                <input type="number" id="waist" name="waist" placeholder="Enter waist size in cm" required>
+            </div>
+            <div class="form-group">
+                <label for="hip">Hip Circumference (cm):</label>
+                <input type="number" id="hip" name="hip" placeholder="Enter hip size in cm" required>
+            </div>
+            <button type="button" onclick="calculateWHR()">Calculate WHR</button>
+            <p id="whrResult"></p>
+        </form>
+
+        <form id="bodyFatForm">
+            <p>Use the Body Fat Percentage calculator below to estimate how much of your body weight is composed of fat (including essential fats):</p>
+            <br>
+            <div class="form-group">
+                <label for="neck">Neck Circumference (cm):</label>
+                <input type="number" id="neck" name="neck" placeholder="Enter neck circumference in cm" required>
+            </div>
+            <div class="form-group">
+                <label for="waist">Waist Circumference (cm):</label>
+                <input type="number" id="waistForBF" name="waistForBF" placeholder="Enter waist circumference in cm" required>
+            </div>
+            <div class="form-group">
+                <label for="hip">Hip Circumference (cm) (Used For Women):</label>
+                <input type="number" id="hip" name="hip" placeholder="Enter hip circumference in cm" required>
+            </div>
+            <div class="form-group">
+                <label for="heightForBF">Height (cm):</label>
+                <input type="number" id="heightForBF" name="heightForBF" placeholder="Enter height in cm" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <button  id="metabolism" type="button" onclick="calculateBodyFat()">Calculate Body Fat Percentage</button>
+            <p id="bodyFatResult"></p>
+        </form>
+        
+        
+        <img class="health" src="https://partners-in-health.com/wp-content/uploads/2020/04/MUSCLE-VS.-FAT-566x566.png" alt="Muscle Vs. Fat">
+
+        
+        <!-- Section: Weight Changes with Age -->
+        <div class="section-card">
+            <h3>Why Your Metabolism Slows Down</h3>
+            <p>As you age the number of calories your body burns at rest, tends to decrease. This happens primarily because muscle mass tends to decrease with age, and muscle burns more calories than fat. The drop in muscle mass, combined with the fact that fat cells don't burn as many calories as muscle cells, leads to a reduction in overall metabolism.</p>
+            <h4> <br> Hormonal Changes: Hormones play a big role in metabolism. For example:</h4>
+            <ul class="with-bullets">
+                <li> Growth hormone levels decline with age affecting muscle repair and growth.</li>
+                <li>Thyroid function may decrease, slowing the metabolic rate.</li>
+                <li>Insulin sensitivity often decreases, meaning the body may struggle to regulate blood sugar as efficiently, which can impact metabolism and energy usage.</li>
+            </ul>
+            <h4><br>Nutritional Absorption:</h4>
+            <p id="physique">With aging, the body’s ability to absorb certain nutrients may decline, which could lead to deficiencies that further affect metabolism. For example, a decrease in stomach acid can impair the absorption of key nutrients like calcium, vitamin B12, and iron, which are important for muscle function and metabolism.</p>
+        </div>
+
+        <!-- Section: Hormonal Changes -->
+        <div class="section-card">
+            <h3>Changes In Muscle Mass</h3>
+            <h4> Sarcopenia:</h4>
+            <p>With age, there's a condition called sarcopenia, where muscle mass and strength decrease. This starts around age 30 and accelerates after the age of 60. Muscle loss contributes to a lower metabolism because muscle tissue requires more energy to maintain than fat tissue.</p>
+            <h4><br> Physical Activity: </h4>
+            <p >People tend to become less active as they age, which can accelerate muscle loss. If muscle mass declines and isn’t replaced, the metabolic rate decreases, and fewer calories are burned at rest.</p>
+        </div>
+        
+        <!-- Section: What You Can Do -->
+        <div class="section-card">
+            <h3>Physique</h3>
+            <p>As muscle mass decreases and fat accumulates (particularly around the abdomen), older adults often see a shift in their body composition. Even if the total weight doesn’t change significantly, the distribution of fat and muscle does, which can influence how the body processes and stores energy.</p>
+            <h4><br>Visceral Fat:</h4>
+            <p id="maintenence">Older adults are more likely to accumulate fat around internal organs (visceral fat), which is linked to increased risk of metabolic disorders like Type 2 diabetes, heart disease, and high blood pressure.</p>
+        </div>
+
+    <div class="section-card">
+        <h3>Hormonal Changes</h3>
+        <p>For women, menopause causes a drop in estrogen, which can lead to fat being stored more easily, particularly around the abdomen. For men, lower testosterone levels with age can reduce muscle mass and increase fat accumulation. As metabolism slows and hormonal changes occur, the body becomes more efficient at storing fat, especially visceral fat, which accumulates around internal organs</p>
+    </div>
+    <div class="section-card">
+        <h3>Why Weight Maintence Becomes Difficult</h3>
+        <p>Hormones like leptin (which signals fullness) and ghrelin (which signals hunger) can become less effective with age, leading to overeating or difficulty regulating portion sizes.</p>
+        <br>
+        <p>Life stressors and age-related sleep issues (like insomnia) can disrupt cortisol levels. High cortisol levels promote fat storage, especially in the abdominal area, and poor sleep disrupts metabolism and appetite control.</p>
+    </div>
+
+    <div class="section-card">
+        <h3>Foods To Maintain Hormones</h3>
+        <h4>Healthy Fats</h4>
+        <p>Fats are crucial for hormone production and regulation. Healthy fats, especially omega-3s, also help reduce inflammation, which can interfere with metabolism.</p>
+        <li><strong>Fatty fish: sardines, herring</strong></li>
+        <li><strong>Nuts and seeds: walnuts, chia seeds, flaxseeds</strong></li>
+        <li><strong>Avocado</strong></li>
+        <li><strong>Olive oil (extra virgin)</strong></li>
+        <li><strong>Coconut oil (in moderation)</strong></li>
+        <h4><br>  Hormone-Regulating Foods</h4>
+        <p>These foods support hormone balance, which is crucial for weight management and metabolic health.</p>
+        <li><strong>Cruciferous vegetables: </strong>, kale, cauliflower (help with estrogen metabolism)</li>
+        <li><strong>Foods rich in zinc: </strong> seeds, oysters, cashews (support testosterone and insulin sensitivity)</li>
+        <li><strong>Foods high in magnesium: </strong>, almonds, dark chocolate (regulates cortisol and insulin)</li>
+        <li><strong>Fermented foods: </strong>kefir, kimchi, sauerkraut (support gut health, which impacts hormones)</li>
+        <h4><br> Antioxidant-Rich Foods</h4>
+        <p>Antioxidants reduce oxidative stress, which can interfere with hormone balance and metabolism.</p>
+        <li><strong>Berries: blueberries, strawberries, raspberries</strong></li>
+        <li><strong>Dark, leafy greens: spinach, kale</strong></li>
+        <li><strong>Bright-colored vegetables: carrots, bell peppers, sweet potatoes</strong></li>
+        <li id="food"><strong>Green Tea</strong></li>
+    </div>
+    <div class="section-card">
+        <h3>Foods To Maintain Metabolism</h3>
+        <h4>High Protein Foods</h4>
+        <p>Protein supports muscle maintenance, which helps preserve a higher metabolism. It also increases satiety, reducing the likelihood of overeating.:<p>
+        <li><strong>Lean meats: chicken, turkey</strong></li>
+        <li><strong>Fish: salmon, tuna, mackerel (also rich in omega-3 fatty acids)</strong></li>
+        <li><strong>Plant-based proteins: beans, lentils, chickpeas</strong></li>
+        <li><strong>Eggs</strong></li>
+        <li><strong>Greek yogurt (preferably low-fat or unsweetened)</strong></li>
+        <li><strong>Cottage cheese</strong></li>
+        <h4><br> Metabolism-Boosting Foods</h4>
+        <p>Certain foods contain compounds that can give your metabolism a slight boost or promote fat-burning.</p>
+        <li><strong>Spicy foods: </strong>peppers (contain capsaicin, which may increase calorie burning)</li>
+        <li><strong>Green tea </strong>(contains EGCG, a compound that can boost your metabolism)</li>
+        <li><strong>Coffee </strong>(caffeine can temporarily increase metabolic rate, but avoid adding too much sugar or cream)</li>
+        <li><strong>Apple cider vinegar </strong>(may help control blood sugar and support fat metabolism)</li>
+        <h4><br> Calcium and Vitamin D-Rich Foods</h4>
+        <p>Calcium and vitamin D are essential for bone health and muscle function, and they may play a role in fat metabolism.</p>
+        <li><strong>Dairy: </strong> milk, Greek yogurt, cheese</li>
+        <li><strong>Fortified foods: </strong>plant-based milk (almond, soy, or oat) fortified with vitamin D</li>
+        <li><strong>Leafy greens: </strong>kale, collard greens</li>
+        <li><strong>Fatty fish: </strong>salmon, mackerel</li>
+        <h4><br>Hydrating Foods and Beverages</h4>
+        <p>Staying hydrated is crucial for maintaining metabolism, digestion, and energy levels.</p>
+        <li><strong>Water: aim for 8+ glasses daily</strong></li>
+        <li><strong>Water-rich foods: cucumbers, watermelon, celery</strong></li>
+        <li id="workout"><strong>Herbal teas: peppermint, chamomile, ginger</strong></li>
+    </div>
+    <div class="section-card">
+        <h3>Foods To Maintain Weight</h3>
+        <h4>Whole Grains and Fiber-Rich Foods</h4>
+        <p>Whole grains and fiber help regulate blood sugar, reducing insulin spikes that can lead to fat storage. Fiber also promotes fullness, reducing calorie intake.</p>
+        <li><strong>Whole grains: oats, quinoa, brown rice, whole wheat bread</strong></li>
+        <li><strong>High-fiber vegetables: broccoli, spinach, Brussels sprouts</strong></li>
+        <li><strong>Fruits with fiber: berries, apples (with skin), pears</strong></li>
+        <li><strong>Legumes: lentils, chickpeas, black bean</strong></li>
+        <h4><br> Other Dietary Tips:</h4>
+        <h4><br> Foods to Limit or Avoid</h4>
+        <p>Refined Carbs and Sugars: Can Cause Blood Sugar SPikes And Crahses Promoting Fat Storage</p>
+        <li><strong>White Bread</strong></li>
+        <li><strong>Pastries</strong></li>
+        <li><strong>Sugary Drinks</strong></li>
+        <li><strong>Candy</strong></li>
+        <br>
+        <p>Trans Fats And Processed Foods: trans fats disrupt hormone function and promote inflammation.</p>
+        <li><strong>Fried Foods</strong></li>
+        <li><strong>Packaged Snacks</strong></li>
+        <li><strong>Butter/Margarine</strong></li>
+        <h4><br>Sample Day Of Eating:</h4>
+        <li><strong>Breakfast: </strong> yogurt with berries, a handful of walnuts, and a drizzle of honey.</li>
+        <li><strong>Snack: </strong> boiled egg with avocado slices.</li>
+        <li><strong>Lunch: </strong> salmon with quinoa and steamed broccoli.</li>
+        <li><strong>Snack: </strong> sticks with hummus or a handful of almonds.</li>
+        <li><strong>Dinner: </strong> chicken, sweet potato, and sautéed spinach.</li>
+        <li><strong>Evening: </strong> cup of green tea or herbal tea.</li>
+    </div>
+
+    <div class="section-card">
+        <h3>Workouts For Your Metabolism</h3>
+        <h4>Strength Training (Weightlifting or Resistance Training)</h4>
+        <p>Builds muscle, which boosts metabolism since muscle burns more calories than fat at rest. It also helps combat age-related muscle loss (sarcopenia) and supports hormone regulation (e.g., testosterone and growth hormone production). Also Increases testosterone (important for both men and women for muscle repair and fat metabolism) and Stimulates the release of growth hormone, which aids muscle recovery and fat burning.</p>
+        <li><strong>Weightlifting (e.g., squats, deadlifts, bench press)</strong></li>
+        <li><strong>Bodyweight exercises (e.g., push-ups, pull-ups, planks)</strong></li>
+        <li><strong>Frequency: 2–4 times per week, targeting all major muscle groups.</strong></li>
+        <h4><br>High-Intensity Interval Training (HIIT)</h4>
+        <p> Short bursts of intense exercise followed by rest periods keep your metabolism elevated for hours post-workout (afterburn effect). It's highly effective for fat burning and improving insulin sensitivity. Also Boosts endorphins (improves mood and reduces cortisol). Helps regulate insulin levels, reducing the risk of Type 2 diabetes.</p>
+        <li>30 seconds of sprinting, followed by 1 minute of walking (repeat for 15–20 minutes).</li>
+        <li>Burpees, mountain climbers, or jumping jacks in intervals.</li>
+        <li id="tips">Frequency: 1–3 times per week, depending on fitness level.</li>
+
+    </div>
+    <div class="section-card">
+        <h3>Workouts For Wight Management</h3>
+        <h4> Cardiovascular Exercise (Aerobic Activity)</h4>
+        <p>Improves heart health, boosts circulation, and helps burn calories for weight management. Moderate-intensity cardio also supports stress reduction. Also Reduces cortisol levels when done at moderate intensity and Enhances the release of "feel-good" hormones like serotonin and dopamine.</p>
+        <li><strong>Walking, jogging, or cycling</strong></li>
+        <li><strong>Swimming or rowing</strong></li>
+        <li><strong>Dance classes or aerobics</strong></li>
+        <li><strong>Frequency: 150 minutes of moderate-intensity or 75 minutes of vigorous-intensity cardio per week (e.g., 30 minutes, 5 days a week).</strong></li>
+
+    </div>
+    <div class="section-card">
+        <h3>Workouts For Aging</h3>
+        <h4>Flexibility and Mobility Workouts</h4>
+        <p>Improves joint health, reduces the risk of injury, and supports recovery from other types of exercise. This is especially important as you age. Also reduces cortisol by promoting relaxation and stress relief.</p>
+        <li><strong>Yoga</strong></li>
+        <li><strong>Swimming or rowing</strong></li>
+        <li><strong>Pilates</strong></li>
+        <li><strong>Dynamic stretching </strong>(before workouts) and static stretching (after workouts)</li>
+        <li><strong>Frequency: </strong> 2–3 times per week or incorporated daily.</li>
+        <h4><br> Low-Impact Exercises</h4>
+        <p>These are gentler on the joints but still effective for maintaining health, burning calories, and reducing stress. Also helps balance cortisol levels without overloading the body.</p>
+        <li><strong>Walking</strong></li>
+        <li><strong>Swimmming</strong></li>
+        <li><strong>Elliptical or cycling</strong></li>
+        <li><strong>Frequency: Can be done daily as part of an active lifestyle.</strong></li>
+        <h4><br> Stress-Reducing Activities</h4>
+        <p>Chronic stress raises cortisol, which can lead to fat storage and disrupt other hormones. Activities that focus on mindfulness and relaxation help counteract this.</p>
+        <li><strong>Yoga </strong>(especially restorative or yin yoga)</li>
+        <li><strong>Tai chi</strong></li>
+        <li><strong>Meditation </strong>(integrated into your workout or separately)</li>
+        <li><strong>Frequency: </strong>1–2 times per week or as needed for stress relief.</li>
+        <h4><br> Functional Training</h4>
+        <p> Improves overall movement patterns and daily functional ability, especially important as you age.</p>
+        <li><strong>Exercises that mimic daily activities: </strong>squats (getting up from a chair), lunges (walking), or kettlebell swings.</li>
+        <li><strong>Balance exercises </strong>like single-leg stands or stability ball workouts.</li>
+        <li id="fix"><strong>Frequency: </strong>Incorporate 1–2 sessions per week.</li>
+    </div>
+
+    <div class="section-card">
+        <h3>Excercise Tips</h3>
+        <h4>Tips For Balancing Your Workout</h4>
+        <ul>
+        <li><strong>Mix It Up: </strong>Combine strength training, cardio, and flexibility exercises in your weekly routine for comprehensive benefits.</li>
+        <li><strong>Listen to Your Body: </strong>Avoid overtraining, which can raise cortisol and lead to burnout or injury.</li>
+        <li><strong>Consistency is Key: </strong>Small, regular workouts (even 20–30 minutes) are more effective than sporadic intense sessions.</li>
+        <li><strong>Focus on Recovery: </strong>Proper rest days, stretching, and sleep are essential to support hormone balance and muscle repair.</li>
+        </ul>
+        <h4><br>Sample Weekly Plan</h4>
+        <li><strong>Monday: </strong>Strength Training (upper body focus)</li>
+        <li><strong>Tuesday: </strong>Cardio (30-minute brisk walk or light jog)</li>
+        <li><strong>Wednsesday: </strong>Yoga or Stretching (30 minutes)</li>
+        <li><strong>Thursday: </strong>HIIT (20–30 minutes)</li>
+        <li><strong>Friday: </strong>Strength Training (lower body focus)</li>
+        <li><strong>Saturday: </strong>Strength Training (lower body focus)</li>
+        <li><strong>Sunday: </strong>Rest or light activity (stretching or walking)</li>
+    </div>
+    <div class="section-card">
+        <h3>Fix Your Weight & Hormones</h3>
+        <ul>
+            <li>
+                <a href="https://www.blueapron.com/pricing?gad_source=1&gclid=Cj0KCQiAyoi8BhDvARIsAO_CDsATJmZXkXglEgmXIlzWITtI1rHPN0uzDnRVqN5kUCorgcUl_V9UU2caAl1bEALw_wcB&plan=mk-4&qty=5&utm_campaign=flashsale_150off&utm_content=fs_newyear_150off-exact&utm_medium=paidsearch_brand&utm_source=google&utm_term=blue+apron" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                   onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                   onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                  Blue Apron: Personalized Homemade Meals Delivered To Your Door.
+                </a>
+              </li>
+              <li>
+                <a href="https://www.weightwatchers.com/us/plans?cid%3DsemGGL_Exact_Brand_Core_Core_qdstw_qobjc_qbudc_qaudp_qrtgn_qpma_qostz_qdevz_qlobr_qgeon_qkwb_qaprcweight+watchers%26account%3DWWUS%26tracker%3D43700080995911060$$=&g_acctid=243-229-0722&g_adgroupid=173353604121&g_adid=725761176852&g_adtype=search&g_campaign=GGL_EN_Prospecting_Brand_Core_Core_Exact_110124&g_campaignid=21869268688&g_keyword=weight%20watchers&g_keywordid=kwd-15752710&g_network=g&gad_source=1&gclid=Cj0KCQiAyoi8BhDvARIsAO_CDsA8PQKtrW89Rn7jD5COJIxS277aV5PnzFsvOncm6lf4dtoCliaqIKwaAgTbEALw_wcB&gclsrc=aw.ds" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                   onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                   onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                   Weight Watchers: Personalized Programs Designed To Meet Your Weight Goals
+                </a>
+              </li>
+              <li>
+                <a href="https://www.myfitnesspal.com/" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                   onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                   onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                   Myfitnesspal: Track Your Nutrition
+                </a>
+              </li>
+              <li>
+                <a href="https://www.amazon.com/stores/Fitbit/Fitbit/page/8C0C1BB6-B75A-4447-B068-50D4FE8F070C" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                   onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                   onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                   Google Fitbit: Track Your Health With The Google Fitbit
+                </a>
+              </li>
+              <li>
+                <a href="https://www.apple.com/watch/?afid=p238%7Cs7KkTmfZ9-dc_mtid_20925qtb42335_pcrid_726639404816_pgrid_130165756074_pexid__&cid=wwa-us-kwgo-watch-slid---Core-AppleWatch-AppleWatchNY-" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                   onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                   onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                   Apple Watch: The Most Advanced Health Tracker
+                </a>
+              </li>
+              <li>
+                <a href="https://www.plannedparenthood.org/planned-parenthood-greater-new-york/get-care/our-services/transgender-services?utm_source=google&utm_medium=search&utm_campaign=ppgny-ga-gac&gad_source=1&gclid=Cj0KCQiAyoi8BhDvARIsAO_CDsAebUaHIRz3zgkayfkmifir2Fqk6-nepf7SjDaWmXKd_4fnbalgsSQaArXBEALw_wcB" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                   onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                   onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                   Hormone Replacement Therapy: a treatment that replaces hormones that the body is no longer producing
+                </a>
+              </li>
+        </ul>
+    </div>
+</section>
+
+
+    <footer>
+        <div class="footer-content">
+            <p class="red">&copy; 2025 Red Rat Health</p>
+
+        </div>
+    </footer>
+</body>
+</html>

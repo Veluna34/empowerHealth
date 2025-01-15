@@ -1,0 +1,1501 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Health - Empower Women's Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #555;
+            padding-top: 80px;
+            transition: background-color 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            background-color: #007c7b;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 30px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 10px;
+        }
+
+        nav ul li {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 12px 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background-color: #004c49;
+            transform: scale(1.05);
+        }
+
+        .content {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            padding-bottom: 40px;
+        }
+
+        .content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            width: 100%;
+        }
+
+        .section-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-card h3 {
+            font-size: 26px;
+            color: #007c7b;
+            margin-bottom: 15px;
+        }
+
+        .section-card p {
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .section-card ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .section-card ul li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 159px;
+        }
+
+        footer .footer-content p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            margin: 0 12px;
+        }
+
+        footer .social-icons img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        h4{
+            font-size: 1.3em;
+            color: #375b7c;
+        }
+
+        .memory-test {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px; /* Set a max-width for better layout */
+            text-align: center;
+        }
+
+
+        #startTest {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        #startTest:hover {
+            background-color: #0056b3;
+        }
+
+        #memoryChallenge {
+            text-align: center;
+        }
+
+        #wordsToRemember {
+            font-weight: bold;
+            font-size: 24px;
+            color: #333;
+            display: block;
+            margin: 20px 0;
+        }
+
+        #startRecall {
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        #startRecall:hover {
+            background-color: #218838;
+        }
+
+        #recallSection {
+            margin-top: 20px;
+        }
+
+        #userRecall {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #submitRecall {
+            background-color: #17a2b8;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        #submitRecall:hover {
+            background-color: #117a8b;
+        }
+
+        #results {
+            text-align: center;
+            display: none;
+        }
+
+        #feedback {
+            font-size: 18px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        p {
+    font-size: 18px; /* Slightly larger for readability */
+    line-height: 1.8; /* Comfortable spacing between lines */
+    color: #333; /* Darker shade for better contrast */
+    margin-bottom: .9em; /* Adds space below paragraphs */
+    text-align: justify; /* Makes the text visually uniform */
+    word-spacing: 0.05em; /* Slightly increase word spacing for clarity */
+}
+.red{
+    color:#ffffff;
+    text-align: center;
+}
+
+.hearing-test {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Set a max-width for better layout */
+    text-align: center;
+    margin-top: 40px;
+}
+
+.sound-btn {
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sound-btn:hover {
+    background-color: #0056b3;
+}
+
+#playSequence {
+    background-color: #28a745;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#playSequence:hover {
+    background-color: #218838;
+}
+
+#startWordGuessGame {
+    background-color: #007bff; /* Blue color for the start button */
+    color:#ffffff;
+    padding: .5em;
+    border-radius: 15%;
+    border-color: none;
+    font-size: 1em;
+
+}
+
+#startWordGuessGame:hover {
+    background-color: #0056b3;
+}
+
+/* Play Sound Button */
+#playSound {
+    background-color: #28a745; /* Green color for the play sound button */
+    color:#ffffff;
+    padding: .5em;
+    border-radius: 15%;
+    border-color: none;
+    font-size: 1em;
+}
+
+#playSound:hover {
+    background-color: #218838;
+}
+
+/* Word Option Buttons */
+.word-btn {
+    background-color: #f8f9fa; /* Light background for word buttons */
+    color: #007c7b; /* Dark teal text */
+    font-weight: bold;
+    margin: 10px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.word-btn:hover {
+    background-color: #007c7b; /* Teal color on hover */
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Word Feedback Button (For results, if needed) */
+#wordFeedback {
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#wordResults {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#movingCircle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    z-index: 10; /* Ensure the circle is above other elements */
+}
+
+#gameArea {
+    width: 600px;
+    height: 400px;
+    border: 2px solid #5a4b3e; /* Dark brown color */
+    position: relative;
+    display: none;
+    margin-top: 20px;
+    background: #f2f2f2; /* Light gray background */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+/* Button Styling */
+#startGame {
+    padding: 12px 30px;
+    font-size: 18px;
+    background-color: #c19a6b; /* Vintage brass color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace; /* Steampunk-like font */
+    transition: background-color 0.3s ease;
+}
+
+#startGame:hover {
+    background-color: #a7865d; /* Slightly darker brass on hover */
+}
+
+/* Circle Styling */
+#movingCircle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #c19a6b; /* Brass color */
+    position: absolute;
+    transition: all 0.2s ease; /* Smooth movement transitions */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Colorful Circles (New Circles) */
+.gameCircle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Game Over Message */
+#gameOverMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    color: #d9534f; /* Red for error */
+    display: none;
+}
+
+#gameOverMessage h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Level Up Message */
+#levelUpMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    color: #5cb85c; /* Green for success */
+    display: none;
+}
+
+/* Results Area */
+#gameResults {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#reactionTime {
+    font-size: 20px;
+}
+
+.sight{
+    text-align: center;
+}
+
+#onestartGame {
+    padding: 12px 30px;
+    font-size: 18px;
+    background-color: #c19a6b; /* Vintage brass color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#onestartGame:hover {
+    background-color: #a7865d; /* Slightly darker brass on hover */
+}
+
+/* Memory Vault Game Area */
+#onegameArea {
+    padding: 15px;
+    border: 2px dashed #5a4b3e; /* Dashed dark brown border */
+    background-color: #f2f2f2; /* Light gray background */
+    border-radius: 10px;
+    margin-top: 20px;
+    display: none;
+    text-align: center;
+}
+
+/* Instruction Heading */
+#instruction {
+    font-size: 18px;
+    color: #5a4b3e;
+    margin-bottom: 15px;
+}
+
+/* Content Display Area */
+#contentDisplay {
+    margin: 15px 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #5a4b3e;
+    border-radius: 5px;
+}
+
+/* Input Field */
+#userInput {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #5a4b3e;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+#userInput:focus {
+    border-color: #a7865d;
+    box-shadow: 0 0 5px rgba(193, 154, 107, 0.5);
+}
+
+/* Submit Button Styling */
+#submitAnswer {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #c19a6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submitAnswer:hover {
+    background-color: #a7865d;
+}
+
+/* Level and Timer Display */
+#levelDisplay, #timerDisplay {
+    font-size: 16px;
+    color: #5a4b3e;
+    margin: 10px 0;
+}
+
+/* New Game Results Section */
+#newgameResults {
+    padding: 15px;
+    border: 2px solid #5cb85c; /* Green border for results */
+    border-radius: 10px;
+    background-color: #e6f5e6; /* Light green background */
+    margin-top: 20px;
+    display: none;
+}
+
+#newgameResults h4 {
+    font-size: 20px;
+    color: #5cb85c; /* Green for success */
+    margin-bottom: 10px;
+}
+
+#totalScore {
+    font-size: 18px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    #gameArea {
+        width: 100%;
+        height: auto;
+    }
+
+    #startGame {
+        width: 100%;
+        padding: 15px;
+        font-size: 20px;
+    }
+}
+
+
+        @media (max-width: 768px) {
+            .content h2 {
+                font-size: 28px;
+            }
+
+            .section-card {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 10px;
+            }
+
+            nav ul li {
+                font-size: 14px;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Empowering Your Health</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="weight.html">Weight/Hormones</a></li>
+                <li><a href="hearing.html">Hearing</a></li>
+                <li><a href="memory.html">Memory</a></li>
+                <li><a href="sight.html">Sight</a></li>
+                <li><a href="tips.html">Tips & Resources</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Games Designed To Help Your Mind & Health</h2>
+        <p>To see correct answers click the right part of your mouse, click inspect (you might have to scroll to see inspect), then click console at the top</p>
+        <div class="section-card">
+            <div class="memoryChallenge">
+            <h3>Memory Magic!</h3>
+            <button id="startTest">Play Memory Magic</button>
+            <div id="memoryChallenge" style="display: none;">
+                <p>Memorize these words: <span id="wordsToRemember"></span></p>
+                <button id="startRecall" style="display: none;">Recall Words</button>
+                <div id="recallSection" style="display: none;">
+                    <p>Enter the words you remember (separate them with commas):</p>
+                    <input type="text" id="userRecall" placeholder="Type here...">
+                    <button id="submitRecall">Submit</button>
+                </div>
+            </div>
+            <div id="results" style="display: none;">
+                <h4>Your Results:</h4>
+                <p id="feedback"></p>
+            </div>
+        </div>
+        </div>
+
+        <div class="section-card">
+            <h3>Sound Sequence</h3>
+            <p class="sight">Do not play if you have a sensitivity to low frequency sounds</p>
+            <button id="playSequence">Play Sound Sequence</button>
+            <div id="hearingChallenge" style="display: none; text-align: center;">
+                <p>Listen carefully to the sound sequence and click the buttons below in the correct order</p>
+                <div id="soundButtons" style="margin: 20px 0;">
+                    <button class="sound-btn" data-sound="1">1</button>
+                    <button class="sound-btn" data-sound="2">2</button>
+                    <button class="sound-btn" data-sound="3">3</button>
+                    <button class="sound-btn" data-sound="4">4</button>
+                </div>
+                <button class="sound-btn" id="submitHearingSequence">Submit</button>
+            </div>
+            <div id="hearingResults" style="display: none; text-align: center;">
+                <h4>Your Results:</h4>
+                <p id="hearingFeedback"></p>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="word-guess-game">
+                <h3>Hearing Havoc</h3>
+                <p>Do not play if you have a sensitivity to everyday or general noises</p>
+                <button id="startWordGuessGame">Start Hearing Havoc</button>
+                <div id="wordChallenge" style="display: none; text-align: center;">
+                    <p>Listen to the sound and select the correct word:</p>
+                    <button id="playSound">Play Sound</button>
+                    <div id="wordButtons" style="margin: 20px 0;">
+                        <!-- Word buttons will be generated dynamically -->
+                    </div>
+                </div>
+                <div id="wordResults" style="display: none; text-align: center;">
+                    <h4>Your Results:</h4>
+                    <p id="wordFeedback"></p>
+                </div>
+            </div>
+        </div>
+
+            <div class="section-card">
+        <div class="visual-tracking-game">
+            <h3>Sight Seeker</h3>
+            <p>Follow the moving circles and click them when they stop to level up. Avoid the pink circles</p>
+            <p>(keep clicking start To increase difficulty)</p>
+            <button id="startGame">Start Sight Seeker</button>
+            <div id="gameArea" style="width: 600px; height: 400px; border: 2px solid #000; position: relative; display: none; margin-top: 20px;">
+                <div id="movingCircle" style="width: 50px; height: 50px; border-radius: 50%; background-color: red; position: absolute;"></div>
+            </div>
+            <div id="gameOverMessage" style="display: none; text-align: center; margin-top: 20px;">
+                <h4>Game Over!</h4>
+                <p>You clicked the pink circle.</p>
+            </div>
+            <div id="gameResults" style="display: none; text-align: center; margin-top: 20px;">
+                <h4>Your Results:</h4>
+                <p id="reactionTime"></p>
+            </div>
+            <div id="levelUpMessage" style="display: none; text-align: center; margin-top: 20px;">
+                <h4>Level Up!</h4>
+            </div>
+            <!-- Message for clicked circle -->
+            <p id="clickedCircleMessage"></p>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="long-term-memory-game">
+                <h3>Memory Vault</h3>
+                <button id="onestartGame">Start Memory Vault</button>
+            
+                <div id="onegameArea" style="display: none;">
+                    <h4 id="instruction">Store and remember the following:</h4>
+                    <div id="contentDisplay"></div>
+                    <input type="text" id="userInput" placeholder="Enter a word or phrase..." />
+                    <button id="submitAnswer">Submit</button>
+            
+                    <div id="levelDisplay"></div>
+                    <div id="timerDisplay"></div>
+                </div>
+            
+                <div id="newgameResults" style="display: none;">
+                    <h4>Your Results:</h4>
+                    <p id="totalScore"></p>
+                </div>
+            </div>
+            </div>
+        
+    </section>
+
+        
+    <script>
+        let currentWords = [];
+        let currentLevel = 1;
+    
+        // Predefined list of real words
+        const wordList = [
+        "apple", "banana", "carrot", "dog", "elephant", "fish", "guitar", "house", "idea", "jungle", "keyboard", "lighthouse",
+        "moon", "notebook", "orange", "piano", "quilt", "rose", "sunshine", "tree", "umbrella", "village", "water", "xylophone", 
+        "yellow", "zebra", "cat", "rabbit", "pencil", "camera", "mountain", "ocean", "river", "bicycle", "butterfly", "computer", 
+        "dinosaur", "flower", "giraffe", "ice", "puzzle", "rainbow", "sky", "star", "train", "window", "yarn", "airport", "bridge", 
+        "cloud", "diamond", "eagle", "flame", "guitar", "hotel", "island", "jewel", "kiwi", "lighthouse", "moonlight", "nest", "oasis", 
+        "parrot", "queen", "rocket", "ship", "treehouse", "universe", "volcano", "whale", "xenon", "yellowstone", "zookeeper", "antelope", 
+        "bicycle", "crocodile", "driftwood", "elephant", "firefly", "glasses", "horizon", "insect", "jaguar", "koala", "lava", "mango", 
+        "noodle", "orangutan", "pyramid", "quicksand", "raccoon", "snowflake", "tiger", "utopia", "vulture", "windmill", 
+        "yogurt", "zeppelin", "albatross", "beacon", "cactus", "dolphin", "eagle", "flamingo", "gazelle", "hippopotamus", "iguana", 
+        "jackal", "kangaroo", "lamb", "mongoose", "narwhal", "octopus", "porcupine", "quail", "rhino", "seahorse", "toucan", "unicorn", 
+        "vulture", "whale", "yellowtail", "zebra", "anchor", "bison", "crane", "dugout", "elk", "fox", "gorilla", "heron", 
+        "impala", "jellyfish", "kiwi", "lemur", "marmot", "nettle", "ostrich", "pelican", "quiver", "reindeer", "sloth", "turkey", 
+        "underwater", "vulture", "walrus", "x-axis", "yoga", "zebu", "apricot", "bread", "cheese", "date", "eggplant", "fig", "grape", 
+        "honeydew", "iceberg", "jelly", "kiwi", "lemon", "mango", "nectar", "orange", "pear", "quince", "raspberry", "strawberry", 
+        "tomato", "watermelon", "avocado", "blueberry", "cherry", "dragonfruit", "elderberry", "fennel", "ginger", "herb",
+        "jalapeno", "lemonade", "melon", "nectar", "olives", "papaya", "quinoa", "redcurrant", "squash", "tangerine", "unsweetened", 
+        "vinegar", "watercress", "yellowtail", "zucchini", "arugula", "basil", "cabbage", "dandelion", "endive", "fennel", 
+        "garlic", "hops", "iceberg", "jalapeno", "kale", "leek", "mustard", "onion", "parsley", "quince", "radish", "spinach", "turnip", 
+        "utensil", "watercress", "yogurt", "zucchini", "hello", "bye", "color", "glass", "water", "pillow", "house", "sky", "cloud", "science", "math",
+        "fork", "drums", "piano", "air", "earth", "mind", "brain", "dark", "light", "forest", "earthquake"
+    ];
+    
+        // Function to get a random word from the wordList
+        function getRandomWord() {
+            const randomIndex = Math.floor(Math.random() * wordList.length);
+            return wordList[randomIndex];
+        }
+    
+        // Generate a set of random unique words
+        function generateRandomWords(count) {
+            const words = new Set();
+            while (words.size < count) {
+                words.add(getRandomWord());
+            }
+            return Array.from(words);
+        }
+    
+        // Start Memory Test
+        document.getElementById('startTest').onclick = () => {
+            restartGame(true); // Fully restart the game
+            document.getElementById('memoryChallenge').style.display = 'block';
+            showWords();
+    
+            // Clear previous results and input
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('userRecall').value = '';
+        };
+    
+        function showWords() {
+            console.log("Correct words for this round:", currentWords); // Log correct words
+            const wordsElement = document.getElementById('wordsToRemember');
+            wordsElement.textContent = currentWords.join(', ');
+            document.getElementById('startRecall').style.display = 'none';
+            document.getElementById('recallSection').style.display = 'none';
+    
+            setTimeout(() => {
+                wordsElement.textContent = 'Now, recall the words!';
+                document.getElementById('startRecall').style.display = 'inline-block';
+            }, 5000); // Display words for 5 seconds
+        }
+    
+        document.getElementById('startRecall').onclick = () => {
+            document.getElementById('recallSection').style.display = 'block';
+        };
+    
+        document.getElementById('submitRecall').onclick = () => {
+            const userWords = document.getElementById('userRecall').value
+                .split(',')
+                .map(word => word.trim().toLowerCase());
+            const correctCount = userWords.filter(word => currentWords.includes(word)).length;
+    
+            const results = document.getElementById('results');
+            const feedback = document.getElementById('feedback');
+    
+            if (correctCount === currentWords.length) {
+                currentLevel++;
+                feedback.textContent = `Great job! You remembered all ${currentWords.length} words correctly. Moving to level ${currentLevel}!`;
+                addNewWord();
+                showWords();
+            } else {
+                feedback.textContent = `Game Over! You remembered ${correctCount} out of ${currentWords.length} words. The game has reset.`;
+                restartGame(true); // Fully restart the game
+            }
+    
+            results.style.display = 'block';
+        };
+    
+        function addNewWord() {
+            currentWords = generateRandomWords(currentWords.length + 1); // Generate a new random set with one more word
+            console.log("New correct words after adding a word:", currentWords); // Log correct words
+            document.getElementById('recallSection').style.display = 'none';
+            document.getElementById('userRecall').value = '';
+        }
+    
+        /**
+         * Resets the game.
+         * @param {boolean} fullReset - If true, reset the game to level 1 and fresh words.
+         */
+        function restartGame(fullReset = false) {
+            if (fullReset) {
+                currentLevel = 1; // Reset to level 1
+            }
+            currentWords = generateRandomWords(3); // Start with 3 completely random words
+            console.log("Game reset. Correct words:", currentWords); // Log correct words
+            document.getElementById('recallSection').style.display = 'none';
+            document.getElementById('memoryChallenge').style.display = 'none';
+            document.getElementById('startRecall').style.display = 'none';
+            document.getElementById('userRecall').value = '';
+            document.getElementById('results').style.display = 'none';
+            const wordsElement = document.getElementById('wordsToRemember');
+            wordsElement.textContent = '';
+        }
+    
+        // Initialize the game with 3 words
+        restartGame(true);
+    
+        // Add event listener for "Start Game" button in Word Guessing Game
+        document.getElementById('startWordGuessGame').onclick = () => {
+            restartGame(true); // Fully reset the game state
+            document.getElementById('wordChallenge').style.display = 'block';
+            document.getElementById('wordResults').style.display = 'none';
+            document.getElementById('wordFeedback').textContent = '';
+    
+            // Generate new word buttons dynamically
+            const wordButtonsContainer = document.getElementById('wordButtons');
+            wordButtonsContainer.innerHTML = ''; // Clear previous buttons
+            const wordChoices = generateRandomWords(5); // Generate 5 random choices
+            currentWords = [wordChoices[Math.floor(Math.random() * wordChoices.length)]]; // Pick one as the correct answer
+            console.log("Correct word for Sound Guessing Game:", currentWords[0]); // Log correct word
+    
+            wordChoices.forEach(word => {
+                const button = document.createElement('button');
+                button.textContent = word;
+                button.onclick = () => {
+                    if (word === currentWords[0]) {
+                        document.getElementById('wordFeedback').textContent = 'Correct! You guessed the right word!';
+                    } else {
+                        document.getElementById('wordFeedback').textContent = 'Wrong! Try again.';
+                    }
+                    document.getElementById('wordResults').style.display = 'block';
+                };
+                wordButtonsContainer.appendChild(button);
+            });
+        };
+    
+        // Play sound logic (placeholder)
+        document.getElementById('playSound').onclick = () => {
+            console.log('Playing sound for word:', currentWords[0]); // Replace with actual sound-playing logic
+        };
+    </script>
+    
+    
+    
+    
+
+
+
+<script>
+    // Hearing Game Logic
+    let soundSequence = [];
+    let userSequence = [];
+    let currentHearingLevel = 1;
+    
+    // AudioContext for generating tones
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    
+    // Function to generate a tone
+    function playTone(frequency, duration) {
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+    
+        oscillator.type = 'sine';  // Sine wave for the tone
+        oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);  // Set frequency for the tone
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        gainNode.gain.setValueAtTime(1, audioContext.currentTime);  // Set volume level
+    
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+    }
+    
+    // Start Hearing Test
+    document.getElementById('playSequence').onclick = () => {
+        resetHearingGame();
+        document.getElementById('hearingChallenge').style.display = 'block';
+        soundSequence = generateSoundSequence(currentHearingLevel + 2); // Increase the sequence length as the game progresses
+        playSoundSequence(); // Show the initial sequence
+    };
+    
+    // Generate a random sound sequence
+    function generateSoundSequence(count) {
+        return Array.from({ length: count }, () => Math.floor(Math.random() * 4) + 1);
+    }
+    
+    // Play the sound sequence
+    function playSoundSequence() {
+        userSequence = [];
+        const sequence = soundSequence.join(', ');
+        console.log(`Sound Sequence: ${sequence}`); // Debugging purposes
+    
+        // Disable user interaction while the sequence plays
+        document.querySelectorAll('.sound-btn').forEach(button => button.disabled = true);
+    
+        let delay = 0;
+        soundSequence.forEach((sound, index) => {
+            setTimeout(() => {
+                const frequency = getFrequencyForSound(sound);
+                playTone(frequency, 0.5); // Play tone for 0.5 seconds
+            }, delay);
+            delay += 1000; // 1 second delay between tones
+        });
+    
+        // Re-enable user interaction after the sequence has played
+        setTimeout(() => {
+            document.querySelectorAll('.sound-btn').forEach(button => button.disabled = false);
+        }, delay);
+    }
+    
+    // Map sound button to frequency
+    function getFrequencyForSound(sound) {
+        const frequencies = {
+            1: 440,    // Tone 1: A4 (440 Hz)
+            2: 523.25, // Tone 2: C5 (523.25 Hz)
+            3: 587.33, // Tone 3: D5 (587.33 Hz)
+            4: 659.25  // Tone 4: E5 (659.25 Hz)
+        };
+        return frequencies[sound];
+    }
+    
+    // Handle button click for user input
+    document.querySelectorAll('.sound-btn').forEach(button => {
+        button.onclick = (e) => {
+            if (userSequence.length < soundSequence.length) {
+                const sound = parseInt(e.target.getAttribute('data-sound'));
+                userSequence.push(sound);
+                const frequency = getFrequencyForSound(sound);
+                playTone(frequency, 0.5); // Play tone for 0.5 seconds
+            }
+        };
+    });
+    
+    // Submit the user's sequence
+    document.getElementById('submitHearingSequence').onclick = () => {
+        const feedback = document.getElementById('hearingFeedback');
+        const results = document.getElementById('hearingResults');
+    
+        // Check if user sequence matches the generated sequence
+        if (userSequence.length !== soundSequence.length) {
+            feedback.textContent = 'You didn’t complete the sequence! Try again.';
+        } else if (userSequence.every((val, index) => val === soundSequence[index])) {
+            feedback.textContent = `Great job! You completed level ${currentHearingLevel}. Moving to the next level!`;
+            currentHearingLevel++;
+            soundSequence = generateSoundSequence(currentHearingLevel + 2); // Increase the sequence length for the next level
+            playSoundSequence(); // Play the next sequence
+        } else {
+            feedback.textContent = `Game Over! You entered the wrong sequence. You reached level ${currentHearingLevel}. Try again to beat your score!`;
+            stopGame();
+        }
+    
+        results.style.display = 'block';
+    };
+    
+    // Stop the game (disable buttons and prevent further input)
+    function stopGame() {
+        // Disable buttons so no further input is possible
+        document.querySelectorAll('.sound-btn').forEach(button => button.disabled = true);
+    }
+    
+    // Reset the hearing game
+    function resetHearingGame() {
+        soundSequence = generateSoundSequence(3); // Start with 3 sounds
+        currentHearingLevel = 1;
+        userSequence = [];
+        document.getElementById('hearingChallenge').style.display = 'none';
+        document.getElementById('hearingResults').style.display = 'none';
+    }
+    </script>
+
+<script>
+    // Word Guessing Game Logic
+    let wordOptions = [];
+    let correctWord = '';
+    let level = 1;
+    
+    // Words and their corresponding sounds
+    const wordSoundMap = {
+        'dog': '/static/mixkit-dog-barking-twice-1.wav',
+        'cat': '/static/mixkit-domestic-cat-hungry-meow-45.wav',
+        'birds': '/static/mixkit-little-birds-singing-in-the-trees-17.wav',
+        'car': '/static/mixkit-car-ignition-1535.wav', // Replace with car sound
+        'bell': '/static/mixkit-cartoon-door-melodic-bell-110.wav', // Replace with bell sound
+        'train': '/static/mixkit-train-passing-by-with-horn-1632.wav',
+        'rain': '/static/mixkit-thunder-rumble-during-a-storm-2395.wav',
+        'wind': '/static/mixkit-wind-blowing-ambience-2658.wav',
+        'ocean': '/static/mixkit-sea-waves-with-birds-loop-1185.wav',
+        'fire': '/static/fire-1.mp3',
+        'whistle': '/static/495340__kirkpatricklive__coach_whistle_10_long.wav',
+        'leaves': '/static/273517__inspectorj__footsteps-dry-leaves-a.wav',
+        'clock': '/static/556991__ycbcr__tabletop-clock-ticking-speed-ramp-down-followup.wav',
+        'violin': '/static/356437__mtg__violin-a-major.wav',
+        'flute': '/static/354815__mtg__flute-e-natural-minor-bad-pitch-staccato.wav',
+        'crickets': '/static/32654__greysound__frogsandcrickets_excerpta_jma_24bit_48k.wav',
+        'clicking': '/static/457456__rudmer_rotteveel__karabiner_click_02.wav',
+        'knocking': '/static/629986__flem0527__knocking-on-wood-door-2.wav',
+        'glass': '/static/204789__pusteblumi__glass-1f.wav',
+        'creaking': '/static/436537__skyernaklea__creaking-door-01.wav',
+        'coins': '/static/728425__sadiquecat__thewoodlandnomad_coins-being-dropped-assorted-shuffled-widened-stereo-quadruple-drop.wav',
+        'paper': '/static/759323__valerie-vivegnis__tearing-paper-6.wav',
+        'tearing': '/static/719004__christopherjngs__cloth-tearing-and-ripping-flannel-cotton-scraps-close-mic-short-fast.wav',
+        'wood': '/static/386223__ldezem__wood-chopping-1.wav',
+        'keyboard': '/static/546033__grcekh__keyboard-typing-2-hhkb-topre.mp3',
+        'jingling': '/static/593871__makadunyiswe__keys-jingling.wav',
+        'fireworks': '/static/25775__ermine__loudbangs_fireworks_mkh3040_061105.wav',
+        'snow': '/static/676545__rthijs__footsteps-in-the-snow-4.wav',
+        'shattering': '/static/389804__krnash__shattering-glass.wav',
+        'bubbling': '/static/66786__mattj99__bubbling01.wav'
+    };
+
+    // AudioContext for generating tones (currently unused)
+    const audio = new (window.AudioContext || window.webkitAudioContext)();
+    
+    // Function to generate a tone for a word
+    function playSoundForWord(word) {
+        const audio = new Audio(wordSoundMap[word]);
+        audio.play();
+    }
+
+    // Start Word Guessing Game
+    document.getElementById('startWordGuessGame').addEventListener('click', () => {
+        resetGame();
+        document.getElementById('wordChallenge').style.display = 'block';
+        nextLevel();
+    });
+    
+    // Set up the next level
+    function nextLevel() {
+        wordOptions = generateWordOptions(level + 2); // Increase the number of options with each level
+        correctWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+        displayWordOptions();
+        console.log(`Correct Word: ${correctWord}`); // Debugging: Show correct word
+    }
+    
+    // Generate a random list of words
+    function generateWordOptions(count) {
+        const allWords = Object.keys(wordSoundMap);
+        const shuffledWords = allWords.sort(() => 0.5 - Math.random());
+        return shuffledWords.slice(0, count);
+    }
+    
+    // Display the word options as buttons
+    function displayWordOptions() {
+        const wordButtonsDiv = document.getElementById('wordButtons');
+        wordButtonsDiv.innerHTML = '';
+    
+        wordOptions.forEach(word => {
+            const button = document.createElement('button');
+            button.className = 'word-btn';
+            button.textContent = word;
+            button.setAttribute('data-word', word);
+            button.onclick = handleWordGuess;
+            wordButtonsDiv.appendChild(button);
+        });
+    }
+    
+    // Handle word guess by the user
+    function handleWordGuess(e) {
+        const guessedWord = e.target.getAttribute('data-word');
+        const feedback = document.getElementById('wordFeedback');
+        const results = document.getElementById('wordResults');
+    
+        if (guessedWord === correctWord) {
+            feedback.textContent = `Correct! Moving to level ${level + 1}.`;
+            level++;
+            nextLevel();
+        } else {
+            feedback.textContent = `Game Over! You reached level ${level}. The correct word was "${correctWord}".`;
+            stopGame();
+        }
+    
+        results.style.display = 'block';
+    }
+    
+    // Play the sound for the current word
+    document.getElementById('playSound').addEventListener('click', () => {
+        playSoundForWord(correctWord); // Correct function call
+    });
+
+    // Stop the game
+    function stopGame() {
+        document.querySelectorAll('.word-btn').forEach(button => button.disabled = true);
+    }
+    
+    // Reset the game
+    function resetGame() {
+        level = 1;
+        wordOptions = [];
+        correctWord = '';
+        document.getElementById('wordChallenge').style.display = 'none';
+        document.getElementById('wordResults').style.display = 'none';
+    }
+</script>
+
+<script>
+// Visual Tracking Game Logic
+let startButton = document.getElementById('startGame');
+let gameArea = document.getElementById('gameArea');
+let movingCircle = document.getElementById('movingCircle');
+let gameResults = document.getElementById('gameResults');
+let reactionTimeDisplay = document.getElementById('reactionTime');
+let levelDisplay = document.getElementById('levelDisplay'); // Added level display
+let levelUpMessage = document.getElementById('levelUpMessage'); // Added level up message
+let clickedCircleMessage = document.getElementById('clickedCircleMessage'); // Added element for tracking clicked circle message
+let gameOverMessage = document.getElementById('gameOverMessage'); // Added Game Over message
+
+let startTime = 0;
+let gameRunning = false;
+let targetPosition = { x: 0, y: 0 };
+let circleSpeed = 1000; // Initial speed at which the circle moves (lower is faster)
+let clickCount = 0;
+let newlevel = 1; // Start at level 1
+let circles = [movingCircle]; // Array to store circles (initially includes only the moving circle)
+let clickedCirclesInRound = 0; // Tracks how many circles were clicked in the current round
+let totalCirclesInRound = 1; // Starts with 1 circle (movingCircle)
+
+let totalCirclesClicked = 0; // Tracks total clicks for the round
+
+// Start the game
+startButton.addEventListener('click', startNewGame);
+
+// Start new game
+function startNewGame() {
+    gameRunning = true;
+    clickCount = 0;
+    newlevel = 1; // Reset level to 1
+    circleSpeed = 1000; // Reset speed to initial value
+    clickedCirclesInRound = 0; // Reset clicked circles for the round
+    totalCirclesInRound = 1; // Start with 1 circle (moving circle)
+    totalCirclesClicked = 0; // Reset total clicked circles in the round
+    gameResults.style.display = 'none';
+    gameArea.style.display = 'block';
+    movingCircle.style.backgroundColor = 'red'; // Reset color
+    levelUpMessage.style.display = 'none'; // Hide level up message
+    clickedCircleMessage.textContent = ''; // Clear previous circle click message
+    gameOverMessage.style.display = 'none'; // Hide Game Over message
+
+    // Reset the game area and remove any additional circles
+    clearGameArea();
+
+    // Reset the circles array and add only the first moving circle back
+    circles = [movingCircle]; // Reset circle array to only include the first circle
+    moveCircle(); // Start moving the first circle
+    startTime = Date.now();
+}
+
+// Function to clear the game area and remove extra circles
+function clearGameArea() {
+    // Remove all dynamically added circles (except the original moving circle)
+    let circlesToRemove = document.querySelectorAll('.gameCircle');
+    circlesToRemove.forEach(circle => {
+        circle.remove();
+    });
+}
+
+// Move the circle randomly
+function moveCircle() {
+    if (!gameRunning) return;
+
+    // Move each circle in the circles array
+    circles.forEach(circle => {
+        targetPosition.x = Math.random() * (gameArea.offsetWidth - circle.offsetWidth);
+        targetPosition.y = Math.random() * (gameArea.offsetHeight - circle.offsetHeight);
+        circle.style.left = targetPosition.x + 'px';
+        circle.style.top = targetPosition.y + 'px';
+    });
+
+    // Change the direction to a random path every interval
+    setTimeout(() => moveCircle(), circleSpeed);
+}
+
+// Click event listener for catching the moving circle
+circles.forEach(circle => circle.addEventListener('click', handleCircleClick));
+
+// Handle when user clicks any of the circles
+function handleCircleClick(event) {
+    if (gameRunning) {
+        const currentTime = Date.now();
+        const reactionTime = (currentTime - startTime) / 1000; // Time in seconds
+        reactionTimeDisplay.textContent = `You caught the circle in ${reactionTime.toFixed(2)} seconds!`;
+
+        // Track which color was clicked
+        const clickedColor = event.target.style.backgroundColor;
+
+        // Check if the clicked circle is pink (game over scenario)
+        if (clickedColor === 'pink') {
+            gameOver();
+            return; // Stop the game immediately if pink circle is clicked
+        }
+
+        // Update the message to display the clicked circle's color
+        clickedCircleMessage.textContent = `You clicked the ${clickedColor} circle!`;
+
+        // Increment the count of clicked circles in the round
+        clickedCirclesInRound++;
+        totalCirclesClicked++;
+
+        // If all circles are clicked, increase speed and move to next level
+        if (clickedCirclesInRound === totalCirclesInRound) {
+            newlevel++;
+            circleSpeed = Math.max(950, circleSpeed - 20); // Increase speed (lower time interval)
+
+            // Show "Level Up!" message for a moment
+            levelUpMessage.style.display = 'block';
+
+            // Create a new random circle every other round (even levels)
+            if (newlevel % 1 === 0) {
+                createNewColoredCircle();
+                totalCirclesInRound++; // Increase total circles for the round
+            }
+
+            // Check if level is a multiple of 5 to add a pink circle
+            if (newlevel % 2 === 0) {
+                createPinkCircle();
+            }
+
+            // Wait for 1 second before continuing the game at the new level
+            setTimeout(() => {
+                levelUpMessage.style.display = 'none'; // Hide the "Level Up!" message
+                moveCircle(); // Move to the next level's circle movement
+                startTime = Date.now(); // Restart timing for the new level
+                clickedCirclesInRound = 0; // Reset clicked circles for the next round
+            }, 1000); // 1 second delay to simulate transition
+        }
+    }
+}
+
+// Function to handle game over when the pink circle is clicked
+function gameOver() {
+    gameRunning = false;
+    gameOverMessage.style.display = 'block';
+    gameResults.style.display = 'block';
+    gameArea.style.display = 'none';
+    reactionTimeDisplay.textContent = `You Reached: ${totalCirclesClicked} Circles`;
+}
+
+// Create a new colored circle to be added to the game
+function createNewColoredCircle() {
+    let newCircle = document.createElement('div');
+    newCircle.classList.add('gameCircle'); // Add a class for easy targeting
+    newCircle.style.width = '50px';
+    newCircle.style.height = '50px';
+    newCircle.style.borderRadius = '50%';
+    newCircle.style.position = 'absolute';
+    newCircle.style.display = 'block';
+
+    // Assign a random color to the new circle
+    const color = getRandomColor();
+    newCircle.style.backgroundColor = color;
+
+    // Store the color in the circle's dataset for easy access later
+    newCircle.dataset.color = color;
+
+    gameArea.appendChild(newCircle);
+    circles.push(newCircle); // Add the new circle to the circles array
+
+    // Add event listener for the new circle
+    newCircle.addEventListener('click', handleCircleClick);
+}
+
+// Function to generate a random color
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256); // Random value for Red (0-255)
+    const g = Math.floor(Math.random() * 256); // Random value for Green (0-255)
+    const b = Math.floor(Math.random() * 256); // Random value for Blue (0-255)
+    return `rgb(${r}, ${g}, ${b})`; // Return the random color in RGB format
+}
+
+// Function to create the pink circle that leads to game over
+function createPinkCircle() {
+    let pinkCircle = document.createElement('div');
+    pinkCircle.classList.add('gameCircle'); // Add a class for easy targeting
+    pinkCircle.style.width = '50px';
+    pinkCircle.style.height = '50px';
+    pinkCircle.style.borderRadius = '50%';
+    pinkCircle.style.position = 'absolute';
+    pinkCircle.style.display = 'block';
+    pinkCircle.style.backgroundColor = 'pink'; // Make the circle pink
+    gameArea.appendChild(pinkCircle);
+    circles.push(pinkCircle); // Add the pink circle to the circles array
+
+    // Add click listener to the pink circle for the game over condition
+    pinkCircle.addEventListener('click', handleCircleClick);
+}
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // New element references based on the updated IDs
+        let newstartButton = document.getElementById('onestartGame');
+        let newgameArea = document.getElementById('onegameArea');
+        let contentDisplay = document.getElementById('contentDisplay');
+        let newuserInput = document.getElementById('userInput');
+        let submitButton = document.getElementById('submitAnswer');
+        let newgameResults = document.getElementById('newgameResults');
+        let totalScoreDisplay = document.getElementById('totalScore');
+        let instructionDisplay = document.getElementById('instruction');
+        let newlevelDisplay = document.getElementById('levelDisplay');
+        let timerDisplay = document.getElementById('timerDisplay');
+        
+        let score = 0;
+        let enteredStrings = [];
+        let reviewTime = null; // We'll calculate this after the first string-entry phase
+        let stringEntryTimeLimit = 30; // Time limit for string entry phase in seconds
+        let levelTimer = null;
+        let timeLeft = stringEntryTimeLimit;
+        let reviewCountdownTimer = null; // Timer for the 3-day countdown
+        let reviewTimeLeft = 3 * 24 * 60 * 60; // 3 days in seconds
+        
+        // Start game
+        newstartButton.addEventListener('click', startGame);
+        submitButton.addEventListener('click', submitString);
+        
+        // Start a new game
+        function startGame() {
+            newgameArea.style.display = 'block';
+            newgameResults.style.display = 'none';
+            score = 0;
+            enteredStrings = [];
+            timeLeft = stringEntryTimeLimit;
+            levelTimer = setInterval(updateTimer, 1000); // Start countdown timer
+            newlevelDisplay.textContent = `Time Limit: ${timeLeft}s to enter strings`;
+            nextStringPrompt();
+        }
+        
+        // Update the string entry timer and check if time is up for string entry
+        function updateTimer() {
+            timeLeft--;
+            timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+        
+            if (timeLeft <= 0) {
+                clearInterval(levelTimer); // Stop the timer
+                startRecallPhase(); // Begin the recall phase after time runs out
+            }
+        }
+        
+        // Prompt the user to enter a string for the current phase
+        function nextStringPrompt() {
+            newuserInput.value = ''; // Clear previous input
+            instructionDisplay.textContent = 'Enter as many words or phrases as you can in the time limit!';
+        
+            newuserInput.disabled = false;
+            submitButton.style.display = 'inline';
+        }
+        
+        // Submit the entered string
+        function submitString() {
+            let playerString = newuserInput.value.trim();
+            if (playerString) {
+                enteredStrings.push(playerString); // Add the entered string to the list
+                score++; // Increase the score
+                newuserInput.value = ''; // Clear the input field
+            }
+        }
+        
+        // Start the recall phase after reviewTime
+        function startRecallPhase() {
+            reviewTime = Date.now() + (3 * 24 * 60 * 60 * 1000); // Set review time to 3 days after string entry
+            instructionDisplay.textContent = 'You Will Be Asked To Enter The Words In Three Days.';
+            
+            // Start countdown timer for the 3 days until recall phase
+            reviewCountdownTimer = setInterval(updateReviewCountdown, 1000);
+        }
+        
+        // Update the 3-day countdown timer
+        function updateReviewCountdown() {
+            if (reviewTimeLeft <= 0) {
+                clearInterval(reviewCountdownTimer); // Stop the countdown
+                recallEnteredStrings(); // Start the recall phase
+            } else {
+                let days = Math.floor(reviewTimeLeft / (24 * 60 * 60));
+                let hours = Math.floor((reviewTimeLeft % (24 * 60 * 60)) / (60 * 60));
+                let minutes = Math.floor((reviewTimeLeft % (60 * 60)) / 60);
+                let seconds = reviewTimeLeft % 60;
+                
+                timerDisplay.textContent = `Time Left to Recall: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                
+                reviewTimeLeft--;
+            }
+        }
+        
+        // Prompt the player to recall all entered strings in the correct order
+        function recallEnteredStrings() {
+            instructionDisplay.textContent = 'Enter the strings you remember in the correct order:';
+            newuserInput.disabled = false;
+            submitButton.style.display = 'inline';
+            
+            // Reset timer for recall phase
+            timeLeft = stringEntryTimeLimit; 
+            levelTimer = setInterval(updateRecallTimer, 1000); // Start countdown for recall phase
+        }
+        
+        // Update the recall phase timer
+        function updateRecallTimer() {
+            timeLeft--;
+            timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+        
+            if (timeLeft <= 0) {
+                clearInterval(levelTimer); // Stop the timer
+                checkRecall(); // Automatically check recall if time runs out
+            }
+        }
+        
+        // Check if the player recalled all strings correctly
+        function checkRecall() {
+            let playerAnswer = newuserInput.value.trim().split(',');
+            
+            if (JSON.stringify(playerAnswer) === JSON.stringify(enteredStrings)) {
+                score += 10; // Reward bonus points for correct recall
+                totalScoreDisplay.textContent = `Congratulations! You recalled the strings correctly. Your score is ${score}.`;
+                setTimeout(() => {
+                    gameOver("Victory!"); // End game with a victory message
+                }, 1000);
+            } else {
+                totalScoreDisplay.textContent = `Incorrect recall! Your recall did not match the entered strings. Final score: ${score}`;
+                setTimeout(() => {
+                    gameOver("Game Over!"); // End game with failure message
+                }, 1000);
+            }
+        }
+        
+        // End the game and display results
+        function gameOver(message) {
+            newgameArea.style.display = 'none';
+            newgameResults.style.display = 'block';
+            totalScoreDisplay.textContent = `${message} Your final score is ${score}.`;
+        }
+    });
+</script>
+
+
+
+
+
+<footer>
+    <div class="footer-content">
+        <p class="red">&copy; 2025 Red Rat Health</p>
+
+    </div>
+</footer>
+
+
+</body>
+</html>

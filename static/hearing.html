@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearing Health - Empower Women's Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #555;
+            padding-top: 80px;
+            transition: background-color 0.3s ease;
+        }
+
+        p {
+    font-size: 18px; /* Slightly larger for readability */
+    line-height: 1.8; /* Comfortable spacing between lines */
+    color: #333; /* Darker shade for better contrast */
+    margin-bottom: .9em; /* Adds space below paragraphs */
+    text-align: justify; /* Makes the text visually uniform */
+    word-spacing: 0.05em; /* Slightly increase word spacing for clarity */
+}
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            background-color: #007c7b;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 30px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 10px;
+        }
+
+        nav ul li {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 12px 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background-color: #004c49;
+            transform: scale(1.05);
+        }
+
+        .content {
+            padding: 80px 20px;
+            margin-right: 270px !important; /* Add space to the left for sidebar */
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            padding-bottom: 40px;
+        }
+
+        .content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            width: 100%;
+        }
+
+        .section-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            margin-bottom: 30px;
+        }
+
+        .section-card h3 {
+            font-size: 26px;
+            color: #007c7b;
+            margin-bottom: 15px;
+        }
+
+        .section-card p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .section-card ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .section-card ul li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        footer .footer-content p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            margin: 0 12px;
+        }
+
+        footer .social-icons img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        h4{
+            font-size: 1.3em;
+            color: #375b7c;
+        }
+
+        .sidebar {
+    position: fixed;
+    top: 58%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 250px;
+    background-color: #7c005196;
+    color: white;
+    padding: 10px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar header */
+.sidebar-header {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Merriweather', serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Sidebar links */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a:focus {
+    background-color: #4c0048;
+    transform: scale(1.05);
+}
+
+        .tone-button {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            padding: 9px 5px; /* Padding around the text */
+            text-align: center; 
+            font-size: 16px; /* Font size */
+            border: none; /* Remove borders */
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+        }
+
+        .tone-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .tone-button:active {
+            background-color: #388e3c; /* Even darker green on active click */
+            transform: scale(0.98); /* Slight shrink on click */
+        }
+
+        .tone-button:focus {
+            outline: none; /* Remove focus outline */
+        }
+
+        .hearing{
+            margin-bottom: -25px;
+        }
+
+        .red{
+    color:#ffffff;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+        .sidebar {
+            width: 200px;
+        }
+
+        .sidebar-header {
+            font-size: 20px;
+        }
+
+        .sidebar-nav ul li a {
+            font-size: 16px;
+        }
+    }
+
+        @media (max-width: 768px) {
+            .content h2 {
+                font-size: 28px;
+            }
+
+            .section-card {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 10px;
+            }
+
+            nav ul li {
+                font-size: 14px;
+                margin: 8px 0;
+            }
+        }
+    </style>
+            <script>
+                function playTone(frequency) {
+                    var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    var oscillator = audioContext.createOscillator();
+                    oscillator.type = 'sine'; // You can change the type of the wave here (sine, square, etc.)
+                    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                    oscillator.connect(audioContext.destination);
+                    oscillator.start();
+                    oscillator.stop(audioContext.currentTime + 1); // The tone will play for 1 second
+                }
+            </script>
+        </section>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Empowering Your Health</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="weight.html">Weight/Hormones</a></li>
+                <li><a href="hearing.html">Hearing</a></li>
+                <li><a href="memory.html">Memory</a></li>
+                <li><a href="sight.html">Sight</a></li>
+                <li><a href="tips.html">Tips & Resources</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Empower Health
+        </div>
+        <div class="sidebar-nav">
+            <ul>
+                <li><a href="#hearing">Asses Your Hearing</a></li>
+                <li><a href="#loss">Learn About Hearing Loss</a></li>
+                <li><a href="#food">Foods For Hearing</a></li>
+                <li><a href="#workout">Resources & Excercises To Fix Your Hearing</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="hearing" class="content">
+        <h2>Understand & Help Your Hearling Loss</h2>
+        <p id="loss" class="hearing">Click on each button to listen to a different frequency. If you cannot hear certain tones, it may indicate a hearing issue. Please consult with a professional for a full hearing test.</p>
+        <button class="tone-button" onclick="playTone(1000)">Play 1000 Hz</button>
+        <button class="tone-button" onclick="playTone(2000)">Play 2000 Hz</button>
+        <button class="tone-button" onclick="playTone(4000)">Play 4000 Hz</button>
+        <button class="tone-button" onclick="playTone(8000)">Play 8000 Hz</button>
+        <button class="tone-button" onclick="playTone(10000)">Play 10000 Hz</button>
+        <button class="tone-button" onclick="playTone(12000)">Play 12000 Hz</button>
+        <button class="tone-button" onclick="playTone(14000)">Play 14000 Hz</button>
+        <button class="tone-button" onclick="playTone(16000)">Play 16000 Hz</button>
+
+
+    
+
+
+        <!-- Section: How Hearing Loss Happens -->
+        <div class="section-card">
+            <h3>How Hearing Loss Happens</h3>
+            <p>Hearing loss as people age, often referred to as age-related hearing loss or presbycusis, is a natural part of the aging process. It occurs gradually over time and is one of the most common conditions affecting older adults. Here's a breakdown of why hearing tends to decline with age:</p>
+            <h4><br> How Hearing Works:</h4>
+                <p> The outer ear (the part attached to the face) captures sound waves and funnels them into the eardrum. The middle ear (inside your ear canal) transfers the vibrations from the eardrum to three tiny bones (ossicles) that amplify the sound. The inner ear (located at the end of the ear canal) converts the vibrations into electrical signals by hair cells (sensory cells) in the cohlea. The auditory nerve sends these signals to the brain which interprets them as sound</p>
+            <h4><br>causes Of Hearing Loss:</h4>
+            <ul>
+                <li><strong>Damage To Hair Cells In The Cochlea: </strong> cochlea contains tiny, sensitive hair cells that respond to different frequencies of sound. Over time these cells can get damaged due to wear and tear from a lifetime of sound exposure or loud envrionments (e.g., concerts, machinery). Hair cells don't regenerate so once they are damaged hearing diminishes permanently</li>
+                <li><br><strong>Changes In The Auditory Nerve: </strong> auditory nerve can deteriorate with age, reducing its ability to transmit signals to the brain. This can make it harder to distinguish speech from background noise.</li>
+                <li><br><strong>Stiffening of the ear structure: </strong>   people age, the ossicles (middle ear bones) and the cochlear membrane may become less flexible. This stiffening reduces the ear's ability to conduct sound vibrations effectively.</li>
+                <li><br> <strong>Changes In The Brain: </strong> brain’s ability to process and interpret sound signals slows down with age. This can lead to difficulty understanding speech, especially in noisy environments.</li>
+                <li id="food"><br> <strong>Other Factors: </strong> people's genetics are more predisposed to hearing loss. Condiitons like diabetes, high blood pressure, and cardiovascular disease can reduce blood flow in the inner ear, harming the delicate structure</li>
+            </ul>
+        </div>
+
+        <!-- Section: What You Can Do -->
+        <div class="section-card">
+            <h3>Learn More About Hearing Loss</h3>
+            <h4>Symptoms Of Age Related Hearing Loss:</h4>
+            <li><strong>Difficulty hearing high-pitched sounds (e.g., birds, children’s voices).</strong></li>
+            <li><strong>Trouble understanding speech, especially in noisy environments.</strong></li>
+            <li><strong>Frequently asking others to repeat themselves.</strong></li>
+            <li><strong>Perceiving sounds as muffled or unclear.</strong></li>
+            <li><strong>Tinnitus (ringing in the ears) may accompany hearing loss.</strong></li>
+            <h4><br> Why High Frequency Hearing Goes First:</h4>
+            <p>Hair cells in the cochlea are arranged in a specific way with high frequency sounds being detected at the base of the hair cells and low frequency sounds being detcted by the hair cell's deeper inside. The base of the hair cells are more exposed to damage and wear over time which is why high pitched sounds are the first to fade.</p>
+            <h4><br> Protect Your Ears:</h4>
+            <p>Avoid prolonged exposure to loud sounds or  use ear protection in noisy environments</p>
+            <p> Follow the 60/60 rule for headphones: listen at no more than 60% volume for no more than 60 minutes at a time</p>
+            <p>Avoid Ototoxic Medications: If possible, consult your doctor about alternatives.</p>
+        </div>
+        <div class="section-card">
+            <h3>Foods For Better Hearing</h3>
+            <h4>Foods Rich In Antioxidants</h4>
+            <p>Antioxidants help combat free radicals, which can damage the cells in your inner ear.</p>
+            <p><br>Vitamin C (boosts immune health and protects ear cells):</p>
+            <li><strong>Citrus fruits (oranges, grapefruits, lemons)</strong></li>
+            <li><strong>Bell peppers</strong></li>
+            <li><strong>Strawberries</strong></li>
+            <li><strong>Kiwi</strong></li>
+            <p><br>Vitamin E (improves blood flow to the ears):</p>
+            <li><strong>Nuts (almonds, sunflower seeds)</strong></li>
+            <li><strong>Spinach</strong></li>
+            <li><strong>Avocados</strong></li>
+            <p><br>Beta-Carotene (helps protect hair cells in the cochlea):</p>
+            <li><strong>Carrots</strong></li>
+            <li><strong>Sweet Potatoes</strong></li>
+            <li><strong>Kale</strong></li>
+            <h4><br>Magnesium-Rich Foods</h4>
+            <p>Magnesium protects the inner ear from noise-induced damage by improving blood flow and reducing the effects of oxidative stress.</p>
+            <li><strong>Bananas</strong></li>
+            <li><strong>Dark leafy greens (spinach, Swiss chard)</strong></li>
+            <li><strong>Avocados</strong></li>
+            <li><strong>Black Beans</strong></li>
+            <li><strong>Whole Grains(Brown Rice, Quinoa)</strong></li>
+            <h4><br>Foods High in Omega-3 Fatty Acids</h4>
+            <p>Omega-3s support cardiovascular health, ensuring good blood flow to the inner ear and reducing the risk of age-related hearing loss.</p>
+            <li><strong>Fatty fish (salmon, mackerel, sardines, tuna)</strong></li>
+            <li><strong>Walnuts</strong></li>
+            <li><strong>Flaxseeds and chia seeds</strong></li>
+            <li><strong>Seaweed and algea</strong></li>
+            <h4><br>Zinc-Rich Foods</h4>
+            <p>Zinc helps boost the immune system and may protect against ear infections, which can contribute to temporary or permanent hearing loss.</p>
+            <li><strong>Shellfish (oysters, crab)</strong></li>
+            <li><strong>Pumpkin seeds</strong></li>
+            <li><strong>Cashews</strong></li>
+            <li><strong>Chickpeas</strong></li>
+            <li><strong>Lean meats(beef, pork)</strong></li>
+            <h4><br>Vitamin D for Bone Health</h4>
+            <p>The bones in the middle ear (ossicles) are essential for hearing. Vitamin D supports bone health and helps prevent issues like otosclerosis (abnormal bone growth in the ear).</p>
+            <li><strong>Egg yolks</strong></li>
+            <li><strong>Foritfied milk or orange juice</strong></li>
+            <li><strong>Fatty fish (salmon, tuna)</strong></li>
+            <li><strong>Mushrooms(especially sun exposed varieties)</strong></li>
+            <h4><br>Iron-Rich Foods</h4>
+            <p>Low iron levels can reduce oxygen flow to the inner ear, potentially leading to hearing issues like tinnitus.</p>
+            <li><strong>Lean red meat</strong></li>
+            <li><strong>Spinach</strong></li>
+            <li><strong>Lentils</strong></li>
+            <li><strong>Tofu</strong></li>
+            <li><strong>Foritified cereals</strong></li>
+            <h4><br>B Vitamins (B12 and Folate)</h4>
+            <p>B vitamins play a key role in nervous system health and help maintain the auditory nerve.</p>
+            <li><strong>Fish (salmon, trout)</strong></li>
+            <li><strong>Eggs</strong></li>
+            <li><strong>Dairy Products</strong></li>
+            <li><strong>Fortified cereals</strong></li>
+            <li><strong>Leafy greens (spinach, argula)</strong></li>
+            <li><strong>Asparagus</strong></li>
+            <li><strong>Lentils</strong></li>
+            <li id="workout"><strong>Brocoli</strong></li>
+        </div>
+        <div class="section-card">
+            <h3>Dieting Tips:</h3>
+            <h4>Foods To Avoid</h4>
+            <p>Some foods and substances can harm ear health or exacerbate hearing loss</p>
+            <li><strong>Excessive Salt: </strong>Can increase fluid retention, affecting the inner ear.</li>
+            <li><strong>Processed Sugars: </strong>May reduce circulation and contribute to diabetes, which can harm hearing.</li>
+            <li><strong>Caffeine: </strong>High levels may worsen tinnitus in some individuals.</li>
+            <li><strong>Alcohol: </strong>Excessive alcohol can damage the auditory nerve and the brain's ability to process sound.</li>
+            <p><br>Drink plenty of water to stay hydrated and support fluid balance in the inner ear.</p>
+        </div>
+        <div class="section-card">
+            <h3>Excercises To Improve Or Help Hearing</h3>
+            <h4>Cardiovascular Exercises</h4>
+            <p>Cardiovascular exercises improve blood flow to the inner ear, supporting the health of the cochlea and preventing damage to tiny hair cells crucial for hearing. They can reduce the risk of hearing loss, tinnitus, and stress-related hearing issues while promoting overall cardiovascular and metabolic health. Activities like walking, running, swimming, or cycling for 30 minutes daily are great for maintaining hearing health.</p>
+            <li><strong>Walking: A low-impact way to increase heart rate and circulation.</strong></li>
+            <li><strong>Jogging or Running: Great for cardiovascular health.</strong></li>
+            <li><strong>Cycling: Improves circulation and is gentle on the joints.</strong></li>
+            <li><strong>Swimming: Combines cardiovascular benefits with low impact.</strong></li>
+            <h4><br>Yoga and Stretching</h4>
+            <p>Yoga is particularly beneficial for hearing health because it reduces stress (a common factor in hearing problems) and promotes blood flow to the head and ears. Certain poses specifically target circulation in the upper body and neck.</p>
+            <li><strong>Downward Dog (Adho Mukha Svanasana): </strong>Improves blood flow to the head.</li>
+            <li><strong>Camel Pose (Ustrasana): </strong>Opens up the chest and promotes circulation.</li>
+            <li><strong>Cobra Pose (Bhujangasana): </strong>Enhances blood flow to the upper body.</li>
+            <li><strong>Tree Pose (Vrikshasana): </strong>Improves balance and posture, which can reduce strain on the ears.</li>
+            <li><strong>Child’s Pose (Balasana): </strong>A calming pose that helps reduce stress and tinnitus.</li>
+            <h4><br>Neck and Shoulder Stretches</h4>
+            <p>Tension in the neck and shoulders can restrict blood flow to the ears and head. Regular stretching can relieve this tension.</p>
+            <li><strong>Neck rolls: </strong> roll your head in a circular motion.</li>
+            <li><strong>Shoulder shrugs: </strong>Raise and lower your shoulders to release tension.</li>
+            <li><strong>Side stretches: </strong>Tilt your head toward one shoulder to stretch the opposite side.</strong></li>
+            <h4><br>Balance and Coordination Exercises</h4>
+            <p>The vestibular system (part of the inner ear) is responsible for balance. Exercises that improve coordination and balance can indirectly benefit inner ear health.</p>
+            <li><strong>Tai Chi: </strong>Combines slow, controlled movements with deep breathing to improve balance and reduce stress.</li>
+            <li><strong>Balance Board or Stability Ball Exercises: </strong>Challenges the vestibular system.</li>
+            <h4><br>Jaw and Face Exercises</h4>
+            <p>Tension in the jaw and surrounding areas can contribute to hearing issues, particularly tinnitus. Facial exercises may help relieve this tension.</p>
+            <li><strong>Jaw stretches: </strong>Open your mouth wide, then move your jaw side to side.</li>
+            <li><strong>Chewing motion: </strong>Mimic the act of chewing to relax the jaw muscles.</li>
+            <li><strong>Ear massages: </strong>Gently rub or tug on your earlobes to improve circulation.</li>
+            <h4><br>Deep Breathing and Relaxation Techniques</h4>
+            <p>Stress can exacerbate hearing loss and conditions like tinnitus. Deep breathing exercises help calm the nervous system and promote relaxation.</p>
+            <li><strong>4-7-8 Breathing Technique: Inhale deeply through your nose for 4 seconds, Hold your breath for 7 seconds, Exhale slowly through your mouth for 8 seconds, Repeat for 5–10 minutes.</strong></li>
+            <h4><br> Ear-Specific Exercises</h4>
+            <p>While these won’t reverse hearing loss, they can help train your brain to better interpret sound and improve focus on auditory inputs.</p>
+            <li><strong>Sound Localization Exercise: </strong>Close your eyes and ask a friend to make noise from different parts of the room. Try to identify the direction of the sound.</li>
+            <li><strong>White Noise Focus: </strong>Play white noise or nature sounds and focus on picking out individual elements (e.g., chirping birds, rustling leaves)</li>
+            <li><strong>Active Listening Practice: </strong>Engage in conversations in noisy environments to improve your ability to filter out background noise.</li>
+            <h4><br> Meditation and Mindfulness</h4>
+            <p>Stress is a significant contributor to hearing problems. Mindfulness and meditation practices can lower cortisol levels and reduce tinnitus symptoms.</p>
+            <li>Sit in a quiet space, close your eyes, and focus on your breathing.</li>
+            <li>If you notice tinnitus, acknowledge the sound without judgment, then gently redirect your focus back to your breath.</li>
+            <h4><br> Posture Correction Workouts</h4>
+            <p>Poor posture can strain the neck and restrict blood flow to the head and ears. Exercises that improve posture may alleviate some hearing-related issues.</p>
+            <li><strong>Plank Pose: </strong>Strengthens core muscles for better posture.</li>
+            <li><strong>Wall Angels: </strong>Stand against a wall and move your arms up and down in a “snow angel” motion to open up the chest.</li>
+            <li><strong>Cat-Cow Stretch: </strong>A yoga pose that helps release tension in the spine and neck.</li>
+            <h4><br> Tips for Safe Workouts:</h4>
+            <li>Avoid listening to loud music through headphones during exercise.</li>
+            <li>Use noise-canceling headphones to protect your ears in noisy gym environments.</li>
+            <li>Focus on consistent, moderate-intensity exercise to promote long-term health.</li>
+        </div>
+        <div class="section-card">
+            <h3>Fix Your Hearing</h3>
+            <ul>
+                <li>
+                    <a href="https://www.amazon.com/Sony-Self-Fitting-Prescription-Grade-Customizable-Rechargeable/dp/B0CSVL1Y47/ref=sr_1_2_sspa?crid=1H2DTS8CM0KNC&dib=eyJ2IjoiMSJ9.Nc-NqRryNbDZLI9Fiefkhmkpemc2drHic_u3U_c4a3J9dWH6QYLBPUwKNa3kQFQwX4IeXVvsJ8tEIusYaQnP_gK-64sAZ2EtLYqd85jFjL0zfEpmcVX9B8dH4DoaQG7creNU79RLdyMZEYrdXF64T1JUV8HMFVXc-txF2pY9yEVBAPkGthNH2ToSLhdmezWQrYCAWiKpObf7LEBxUhDAzcqon-36q6AdHX6IQWt-6Zk.54pabewIPlBMrCT_LFakHrauNJlZq7StQo98GKfyvQQ&dib_tag=se&keywords=Sony+CRE-C20&qid=1736644607&sprefix=sony+cre-c20%2Caps%2C67&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                      Hearing Aids: Devices that amplify sound for better hearing.
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.cochlear.com/us/en/campaign/rediscover-the-sounds?utm_source=google&utm_medium=cpc&utm_campaign=prosp_brnd_ci_n8_can_ci-prog_nuc-ev&utm_content=cochlearterms_rsa&gad_source=1&gclid=Cj0KCQiAyoi8BhDvARIsAO_CDsCOsv67FopX-XKJqKe8_Rf3qteoUiBr5pZSUUardjeDRXRSNs1-G9IaAsulEALw_wcB" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       Cochlear Implants: For severe hearing loss, these implants bypass damaged parts of the cochlea..
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://mn.gov/deaf-hard-of-hearing/assistive-technology/alerting-devices/" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       Assistive Devices: Amplified telephones, TV listening systems, or alerting devices.
+                    </a>
+                  </li>
+                  <li>Communication Strategies: Speak clearly and face the person when talking, Minimize background noise, Use visual cues and gestures.        </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="red">&copy; 2025 Red Rat Health</p>
+
+        </div>
+    </footer>
+</body>
+</html>

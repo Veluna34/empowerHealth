@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Health - Empower Women's Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #555;
+            padding-top: 80px;
+            transition: background-color 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        header {
+            background-color: #007c7b;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 30px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 10px;
+        }
+
+        nav ul li {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 12px 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background-color: #004c49;
+            transform: scale(1.05);
+        }
+
+        .sidebar {
+    position: fixed;
+    top: 58%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 250px;
+    background-color: #7c005196;
+    color: white;
+    padding: 10px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar header */
+.sidebar-header {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Merriweather', serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Sidebar links */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a:focus {
+    background-color: #4c0048;
+    transform: scale(1.05);
+}
+
+        .content {
+            padding: 80px 20px;
+            margin-right: 270px !important; /* Add space to the left for sidebar */
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            padding-bottom: 40px;
+        }
+
+        .content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            width: 100%;
+        }
+
+        .section-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            margin-bottom: 30px;
+        }
+
+        .section-card h3 {
+            font-size: 26px;
+            color: #007c7b;
+            margin-bottom: 15px;
+        }
+
+        .section-card p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .section-card ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .section-card ul li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        footer .footer-content p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons a {
+            margin: 0 12px;
+        }
+
+        footer .social-icons img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        h4{
+            font-size: 1.3em;
+            color: #375b7c;
+        }
+
+        #results {
+            text-align: center;
+            display: none;
+        }
+
+        #feedback {
+            font-size: 18px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        p {
+    font-size: 18px; /* Slightly larger for readability */
+    line-height: 1.8; /* Comfortable spacing between lines */
+    color: #333; /* Darker shade for better contrast */
+    margin-bottom: .9em; /* Adds space below paragraphs */
+    text-align: justify; /* Makes the text visually uniform */
+    word-spacing: 0.05em; /* Slightly increase word spacing for clarity */
+}
+
+#memory-test {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    text-align: center;
+}
+
+#memory-test p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#memory-test button {
+    background-color: #007c7b;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#memory-test button:hover,
+#memory-test button:focus {
+    background-color: #004c49;
+    transform: scale(1.05);
+}
+
+#memory-test textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+#memory-test textarea:focus {
+    border-color: #007c7b;
+    outline: none;
+}
+
+#memory-test #result {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #007c7b;
+    font-weight: 500;
+}
+
+#memory-test #result em {
+    font-size: 16px;
+    color: #555;
+    display: block;
+    margin-top: 10px;
+}
+
+.red{
+    color:#ffffff;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #memory-test {
+        padding: 15px;
+    }
+
+    #memory-test button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    #memory-test textarea {
+        font-size: 14px;
+    }
+}
+
+        @media (max-width: 768px) {
+            .content h2 {
+                font-size: 28px;
+            }
+
+            .section-card {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 10px;
+            }
+
+            nav ul li {
+                font-size: 14px;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Empowering Your Health</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="weight.html">Weight/Hormones</a></li>
+                <li><a href="hearing.html">Hearing</a></li>
+                <li><a href="memory.html">Memory</a></li>
+                <li><a href="sight.html">Sight</a></li>
+                <li><a href="tips.html">Tips & Resources</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Empower Health
+        </div>
+        <div class="sidebar-nav">
+            <ul>
+                <li><a href="#memory">Assess Short Term Memory</a></li>
+                <li><a href="#mental">How Memory Changes & Mental Excercises For Memory</a></li>
+                <li><a href="#exercise">Physical Excercises & Foods For Memory</a></li>
+                <li><a href="#resources">Fix Your Memory</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="memory" class="content">
+        <h2>Memory Changes with Age</h2>
+        <p id="mental">As we age, it’s important to monitor our cognitive abilities, including memory. Below is a simple memory test inspired by clinical assessments:</p>
+
+        <div id="memory-test">
+            <p>
+                <strong>Instructions:</strong> You will be shown a list of words for a brief period. After the list disappears, 
+                write down as many words as you can remember. This exercise helps assess short-term memory.
+            </p>
+            <button id="start-test">Begin Test</button>
+            <div id="word-display" style="font-size: 18px; font-weight: bold; margin: 20px 0;"></div>
+            <textarea id="memory-input" rows="5" placeholder="Enter the words you remember" style="display: none; width: 100%;"></textarea>
+            <button id="submit-test" style="display: none;">Submit</button>
+            <p id="result"></p>
+        </div>
+    
+    <script>
+        document.getElementById('start-test').addEventListener('click', function() {
+            const wordDisplay = document.getElementById('word-display');
+            const memoryInput = document.getElementById('memory-input');
+            const submitButton = document.getElementById('submit-test');
+            const wordList = ["apple", "blue", "river", "house", "friend", "paper", "window", "garden"];
+            
+            wordDisplay.textContent = wordList.join(", ");
+            this.style.display = 'none';
+            setTimeout(() => {
+                wordDisplay.textContent = '';
+                memoryInput.style.display = 'block';
+                submitButton.style.display = 'inline-block';
+            }, 5000); // Display the words for 5 seconds
+        });
+    
+        document.getElementById('submit-test').addEventListener('click', function() {
+            const memoryInput = document.getElementById('memory-input').value.split(/\s*,\s*|\s+/);
+            const correctWords = ["apple", "blue", "river", "house", "friend", "paper", "window", "garden"];
+            const matchedWords = memoryInput.filter(word => correctWords.includes(word.toLowerCase()));
+            
+            const result = document.getElementById('result');
+            result.innerHTML = `
+                You remembered ${matchedWords.length} out of ${correctWords.length} words.<br>
+                <strong>Words you recalled:</strong> ${matchedWords.join(", ")}<br>
+                <strong>Original words:</strong> ${correctWords.join(", ")}<br>
+                <em>Note:</em> This is a basic test and does not replace professional evaluation.
+            `;
+        });
+    </script>
+
+        <!-- Section: How Memory Changes -->
+        <div class="section-card">
+            <h3>Memory & How It Changes</h3>
+            <h4>Different Types Of Memory:</h4>
+                <p><strong>Short-Term Memory: </strong> is the ability to hold small amounts of information for a short period, like remembering a phone number just long enough to dial it. As we age, this type of memory tends to decline a bit, making it harder to retain new information immediately.</p>
+                <p><br> <strong>Working Memory: </strong> is a more active form of short-term memory where we process and manipulate information (e.g., doing mental math). Older adults may find it harder to juggle multiple tasks or remember things in real-time.</p>
+                <p><br> <strong>Long-Term Memory: </strong> memory stores information for a longer time. There are two types:</p>
+            <li><strong>Episodic Memory: </strong>This involves remembering specific events or experiences from your life. It tends to be more affected by aging, making it harder for older adults to recall recent events.</li>
+            <br>
+            <li><strong>Semantic Memory: </strong>This involves facts and general knowledge (e.g., knowing the capital of France). This type of memory tends to remain relatively stable with age, and may even improve because of accumulated knowledge.</li>
+            <br>
+            <li><strong>Procedural Memory: </strong>This involves remembering how to do things, like riding a bike or tying your shoes. It generally remains intact with age and may even improve as a person gets older, due to years of experience and practice.</li>
+            <h4><br>How Memory Declines:</h4>
+            <p><strong>Slower Brain Processing: </strong>As we get older, the brain processes information more slowly. This means it might take a bit longer to learn something new or recall a specific memory.</p>
+            <p><br><strong>Decline in the Hippocampus: </strong>The hippocampus is the brain area associated with forming new memories. With age, the hippocampus shrinks slightly, which can make it harder to remember new information or recent events.</p>
+            <p><br><strong>Decreased Connectivity: </strong>Neurons in the brain may become less connected over time, which means information isn't processed as efficiently. This can lead to issues with recall and quick thinking.</p>
+            <p><br><strong>Attention and Focus: </strong>As we age, it becomes harder to concentrate for long periods. If attention is divided or not fully focused on a task, the brain may not encode the information properly, leading to forgetfulness.</p>
+            <p><br><strong>Changes in Sleep: </strong>Sleep is crucial for memory consolidation (the process where memories become stable). As we age, sleep patterns may change, leading to poorer quality sleep, which can, in turn, affect memory.</p>
+            <h4><br> How Memory Improves:</h4>
+            <p><strong>Knowledge and Expertise: </strong>As we accumulate knowledge over time, our ability to recall facts, solve problems based on experience, and use wisdom often improves. This is why older adults tend to perform better in some areas of intellectual tasks despite memory declines.</p>
+            <p><br><strong>Emotional Memory: </strong>Interestingly, emotional memory can be more stable or even better as we age. Older adults tend to remember emotionally significant events or experiences more clearly, likely due to increased emotional regulation with age.</p>
+            <h4><br> Why Memory Changes:</h4>
+            <p><strong>Brain Structure Changes: </strong>As we get older, some areas of the brain shrink, while others may grow slightly. For example, the prefrontal cortex, which helps with decision-making and problem-solving, tends to shrink with age. However, the brain is also quite adaptable and can compensate for some losses.</p>
+            <p><br> <strong>Neurotransmitter Changes: </strong>Neurotransmitters are chemicals that help with communication between brain cells. As we age, the levels of some neurotransmitters (like acetylcholine) decrease, affecting cognitive functions such as memory.</p>
+            <p id="exercise"><br><strong>Genetics and Health: </strong>Genetics, overall health, lifestyle, and environmental factors (such as diet, exercise, and social engagement) play a significant role in memory changes. For example, people who engage in physical and mental activities tend to experience less memory decline.</p>
+        </div>
+
+        <!-- Section: What You Can Do -->
+        <div class="section-card">
+            <h3>Mental Excercises To Help With Memory</h3>
+            <h4>Memory Games And Puzzles</h4>
+            <p><strong>Sudoku: </strong> number puzzle helps improve working memory and problem-solving abilities. It challenges you to think logically and recall patterns, which strengthens memory.</p>
+            <br>
+            <p><strong>Crossword Puzzles: </strong>encourage word recall, strengthen vocabulary, and help improve long-term memory.</p>
+            <br>
+            <p><strong>Jigsaw Puzzles: </strong> jigsaw puzzles requires visual memory and the ability to organize and retain spatial information.</p>
+            <br>
+            <p><strong>Memory Matching Games: </strong> games, such as the classic "Concentration," involve flipping over cards and trying to remember where pairs are located.</p>
+            <h4><br> New Skills To Learn</h4>
+            <p><strong>Learn a New Language: </strong> a language involves memorizing vocabulary, grammar rules, and sentence structures. This is a highly effective way to boost both short-term and long-term memory.</p>
+            <br>
+            <p><strong>Learn to Play an Instrument:</strong> Playing an instrument helps develop auditory memory, coordination, and focus. It can also improve spatial-temporal skills.</p>
+            <br>
+            <p><strong> Take Up a New Hobby: </strong> something new, like knitting, painting, or even cooking new recipes, can stimulate different parts of the brain and keep it engaged.</p>
+            <h4><br> Reading and Comprehension</h4>
+            <p><strong>Summarize What You Read: </strong> reading, try to recall and summarize what you learned. This exercise enhances your ability to retain and process information.</p>
+            <h4><br>Visualization and Mnemonic Devices</h4>
+            <p><strong>Mind Mapping: </strong> mind maps involves organizing information visually by branching out related ideas. This helps improve memory by associating information in a structured way.</p>
+            <p><br><strong>Use Mnemonics: </strong> devices are memory aids that help you recall information. For example, creating acronyms, rhymes, or vivid imagery can make memorization easier and more effective.</p>
+            <h4><br>Mental Arithmetic</h4>
+            <p><strong>Mental Math: </strong> doing calculations in your head rather than relying on a calculator. Start with simple addition and subtraction, and gradually increase the difficulty with multiplication and division. This boosts working memory and concentration.</p>
+            <p><br><strong>Counting Backwards: </strong> counting backwards from 100 by 3s or 7s. This helps enhance mental processing and recall.</p>
+            <h4><br>Practice Focus and Attention</h4>
+            <p><strong>Meditation and Mindfulness: </strong> meditation helps improve attention, focus, and concentration. Regular practice can reduce stress and increase the brain's ability to process and store information.</p>
+            <p><br> <strong>Memory Recall Exercises: </strong> yourself on different lists of objects, people, or events. For example, memorize a list of words and try to recall them after a short period. This strengthens working memory and recall abilities.</p>
+            <h4><br> Engage in Social Interaction</h4>
+            <p><strong>Conversations: </strong> in deep, meaningful conversations can help stimulate the brain by challenging you to recall information, think critically, and express your thoughts clearly. Discussing topics that are new or unfamiliar can be particularly beneficial.</p>
+            <p><br><strong>Debating or Discussions: </strong> part in discussions or debates where you need to recall facts, think on your feet, and engage in argumentation. This exercises both memory and critical thinking.</p>
+        </div>
+        <div class="section-card">
+            <h3>Physical Excercises For Memory</h3>
+            <h4>Aerobic Exercises</h4>
+            <p>Aerobic exercises are some of the most effective for improving memory and cognitive function, as they boost blood flow to the brain and stimulate hippocampal growth (the area responsible for memory). Aerobic activities improve cardiovascular health, which directly benefits the brain by increasing oxygen and nutrient delivery</p>
+            <li><strong>Brisk walking</strong></li>
+            <li><strong>Jogging or running</strong></li>
+            <li><strong>Swimming</strong></li>
+            <li><strong>Dancing (e.g., Zumba, ballroom dancing)</strong></li>
+            <li><strong>Cycling</strong></li>
+            <h4><br>Strength Training</h4>
+            <p>Resistance training (weightlifting or bodyweight exercises) supports memory by promoting the release of growth factors and improving overall cognitive function. Strength training enhances the production of BDNF and improves hormone regulation, both of which support brain health.</p>
+            <li><strong>Weightlifting</strong></li>
+            <li><strong>Resistance band exercises</strong></li>
+            <li><strong>Bodyweight exercises like squats, push-ups, or planks</strong></li>
+            <h4><br>Yoga and Mind-Body Practices</h4>
+            <p>Yoga and similar practices reduce stress, improve focus, and enhance memory by calming the mind and promoting better attention. These practices increase mindfulness and focus while reducing cortisol levels, a stress hormone that can negatively impact memory.</p>
+            <li><strong>Yoga (especially poses like the Tree Pose or Warrior Pose that require balance and focus)</strong></li>
+            <li><strong>Tai Chi</strong></li>
+            <li><strong>Pilates</strong></li>
+            <h4><br>High-Intensity Interval Training (HIIT)</h4>
+            <p>HIIT alternates between short bursts of intense exercise and periods of rest or low activity. This type of exercise is excellent for cardiovascular health and brain plasticity. HIIT has been shown to increase BDNF levels and improve memory, especially in older adults.</p>
+            <li><strong>Sprinting followed by walking or jogging</strong></li>
+            <li><strong>Circuit training (e.g., jumping jacks, burpees, or kettlebell swings)</strong></li>
+            <li><strong>Cycling intervals (pedaling hard for 30 seconds, then slow for 1-2 minutes)</strong></li>
+            <h4><br> Dancing</h4>
+            <p>Dancing combines aerobic activity with mental challenges, such as remembering steps, which enhances memory and cognitive function. The combination of physical movement, music, and the need to remember choreography creates a unique stimulus for the brain.</p>
+            <h4><br>Coordination and Balance Exercises</h4>
+            <p>Activities that improve coordination and balance can strengthen the connection between different brain regions and improve memory. These exercises engage multiple areas of the brain, improving both physical and cognitive function.</p>
+            <li><strong>Playing sports </strong>(e.g., tennis, basketball)</li>
+            <li><strong>Balance-focused exercises </strong>(e.g., standing on one foot, Bosu ball workouts)</li>
+            <li><strong>Martial arts like karate or judo</strong></li>
+            <h4><br> Outdoor Activities</h4>
+            <p>Spending time outdoors while engaging in physical activity has additional benefits for memory. The combination of exercise, fresh air, and nature improves mood and supports brain function. Being in nature reduces stress and stimulates the brain through sensory experiences.</p>
+            <li><strong>Hiking</strong></li>
+            <li><strong>Gardening</strong></li>
+            <li><strong>Rock Climbing</strong></li>
+            <li><strong>Paddleboarding or kayaking</strong></li>
+            <h4><br> Stretching and Flexibility Exercises</h4>
+            <p>Stretching may not seem directly linked to memory, but it improves circulation and reduces tension, which can positively affect focus and memory. Stretching supports overall brain health by improving blood flow and reducing muscle tension that can interfere with mental clarity.</p>
+            <li><strong>Dynamic stretches (e.g., leg swings, arm circles)</strong></li>
+            <li><strong>Static stretches (e.g., touching your toes, side stretches)</strong></li>
+            <h4><br>Group Sports and Activities</h4>
+            <p>Team-based sports challenge the brain to work socially and physically, which helps with memory and decision-making. Social interaction combined with physical activity stimulates both cognitive and emotional memory.</p>
+            <li><strong>Soccer</strong></li>
+            <li><strong>Volleyball</strong></li>
+            <li><strong>Pickleball</strong></li>
+            <li><strong>Basketball</strong></li>
+            <h4><br>Daily Functional Activities</h4>
+            <p>Even simple, everyday activities that involve physical movement can improve memory when done regularly. These activities increase blood flow to the brain and stimulate memory indirectly through routine engagement and movement.</p>
+            <li><strong>Walking up stairs</strong></li>
+            <li><strong>Cleaning and organizing</strong></li>
+            <li><strong>Playting with children or pets</strong></li>
+        </div>
+        <div class="section-card">
+            <h3>Foods For Memory</h3>
+            <h4>Fatty Fish</h4>
+            <p>Fatty fish like salmon, mackerel, sardines, and trout are rich in omega-3 fatty acids, which are essential for brain health. Omega-3s help build brain and nerve cells and are crucial for memory and learning. Aim for at least two servings of fatty fish per week. If you're not a fish eater, consider omega-3 supplements (e.g., fish oil or algae oil).</p>
+            <h4><br>Blueberries</h4>
+            <p>Blueberries are packed with antioxidants, particularly flavonoids, which may delay brain aging and improve memory by reducing oxidative stress and inflammation. Add a handful of fresh or frozen blueberries to smoothies, yogurt, or oatmeal.</p>
+            <h4><br> Nuts and Seeds</h4>
+            <p>Nuts, particularly walnuts, are excellent for brain health due to their high content of omega-3 fatty acids, vitamin E, and antioxidants. Seeds like flaxseeds, chia seeds, and pumpkin seeds are rich in magnesium, zinc, and other brain-boosting nutrients. Snack on a small handful of mixed nuts or sprinkle seeds onto salads, yogurt, or cereal.</p>
+            <h4><br> Dark Leafy Greens</h4>
+            <p>Vegetables like spinach, kale, collard greens, and broccoli are high in vitamin K, lutein, folate, and beta carotene, which are linked to slower cognitive decline. Include a serving of leafy greens in your meals daily, such as in salads, smoothies, or stir-fries.</p>
+            <h4><br> Eggs</h4>
+            <p>Eggs are rich in choline, a nutrient that supports the production of acetylcholine, a neurotransmitter involved in memory and learning. They also provide vitamin B12, which helps maintain healthy nerve cells. Enjoy eggs in various forms—boiled, scrambled, or as part of an omelet with vegetables.</p>
+            <h4><br>Whole Grains</h4>
+            <p>Whole grains like oatmeal, quinoa, brown rice, and whole-grain bread provide a steady supply of glucose, which fuels the brain. They also contain B vitamins, which are essential for brain health. Swap refined grains for whole-grain alternatives in your meals to support better cognitive function.</p>
+            <h4><br> Avacados</h4>
+            <p>Avocados are rich in healthy monounsaturated fats, which support healthy blood flow to the brain. They also provide potassium and vitamin E, which help protect against oxidative damage. Add avocado to toast, salads, or smoothies for a creamy, brain-boosting addition</p>
+            <h4><br>Dark Chocolate</h4>
+            <p>Dark chocolate contains flavonoids, caffeine, and antioxidants that can enhance memory, focus, and mood. Flavonoids in dark chocolate may improve blood flow to the brain. Choose dark chocolate with at least 70% cocoa content and enjoy a small piece as a treat</p>
+            <h4><br>Oranges and Citrus Fruits</h4>
+            <p>Oranges, grapefruits, and other citrus fruits are loaded with vitamin C, which helps prevent age-related cognitive decline by reducing oxidative stress. Eat a whole orange or drink freshly squeezed orange juice for a brain-friendly snack.</p>
+            <h4><br> Turmeric</h4>
+            <p>Turmeric contains curcumin, a powerful antioxidant and anti-inflammatory compound that may boost memory and support the growth of new brain cells. Add turmeric to curries, soups, or teas for a flavorful and health-boosting ingredient.</p>
+            <h4><br>Green Tea</h4>
+            <p>Green tea contains caffeine for mental alertness and L-theanine, which promotes relaxation and reduces stress. Its antioxidants also support brain health. Replace sugary beverages with green tea for a calming and memory-enhancing drink.</p>
+            <h4><br> Tomatoes</h4>
+            <p>Tomatoes are rich in lycopene, an antioxidant that may protect brain cells from free-radical damage, which contributes to memory decline. Tomatoes are rich in lycopene, an antioxidant that may protect brain cells from free-radical damage, which contributes to memory decline.</p>
+            <h4><br>Beans and Lentils</h4>
+            <p>Tomatoes are rich in lycopene, an antioxidant that may protect brain cells from free-radical damage, which contributes to memory decline. Use beans and lentils in soups, stews, or as a protein-rich side dish.</p>
+            <h4><br> Broccoli</h4>
+            <p>Broccoli is packed with antioxidants and vitamin K, which is linked to better memory and cognitive function. Steam or roast broccoli as a side dish or add it to stir-fries.</p>
+            <h4><br>Fatty Foods with Omega-3 Fortification</h4>
+            <p>Foods fortified with omega-3s, such as certain brands of eggs, yogurt, or milk, provide a convenient way to boost memory-supporting nutrients. Check food labels for omega-3 fortification.</p>
+            <h4><br> Beets</h4>
+            <p>Check food labels for omega-3 fortification. Roast beets or add beet juice to your diet.</p>
+            <h4><br> Berries (Other Then Blueberries)</h4>
+            <p>Strawberries, raspberries, and blackberries also contain antioxidants that protect brain cells and improve communication between neurons. Mix a variety of berries into a fruit salad or smoothie.</p>
+            <h4><br> Walnuts</h4>
+            <p id="resources">Mix a variety of berries into a fruit salad or smoothie. Mix a variety of berries into a fruit salad or smoothie.</p>
+
+        </div>
+        <div class="section-card">
+            <h3>Fix Your Memory</h3>
+            <ul>
+                <li>
+                    <a href="https://www.nytimes.com/crosswords" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                      Brain Teasers From The New York Times Including: Word Searches, Crosswords, Sudokus, and more.
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.zocdoc.com/procedure/neuropsychology-evaluation-1295?utm_source=google&utm_medium=cpc_generic&utm_campaign=10842927556&utm_term=_&utm_content=106242771585&gad_source=1&gclid=CjwKCAiA7Y28BhAnEiwAAdOJUGmxoU5D85jcohpWOWVM1EV1fehABal1zcdWrIUU5L5u6pq6tZzBQBoCQ6UQAvD_BwE" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       Neuropsychological Testing: Assesses memory and cognitive function to identify areas of improvement.
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://keep.google.com/#home" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       Google Keep: Organize And Set Reminders
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.cogmed.com/" target="_blank" style="color: rgb(0, 8, 255); text-decoration: none; font-weight: bold;"
+                       onmouseover="this.style.textDecoration='underline'; this.style.color='darkblue';"
+                       onmouseout="this.style.textDecoration='none'; this.style.color='blue';">
+                       CogMed: A research-backed program focusing on improving working memory.
+                    </a>
+                  </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="red">&copy; 2025 Red Rat Health</p>
+
+        </div>
+    </footer>
+</body>
+</html>
